@@ -19,7 +19,8 @@ COPY app/requirements.txt .
 # Install all deps into /install prefix, no cache
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir --prefix=/install -r requirements.txt && \
-    # Pre-download the embedding model so the runtime image doesn't need internet
+    # Pre-download the embedding model so runtime doesn't need internet access
+    PYTHONPATH=/install/lib/python3.11/site-packages \
     HF_HOME=/install/hf_cache \
     python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
 
