@@ -16,9 +16,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY app/requirements.txt .
 
-# Install all deps into /install prefix, no cache
+# Install CPU-only PyTorch FIRST (~300 MB vs ~2.1 GB for full GPU version)
+# This is the single biggest image size reduction for a CPU-only cloud deployment
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir --prefix=/install -r requirements.txt && \
+    pip install --no-cache-dir --prefix=/install \
+        torch --index-url https://download.pytorch.org/whl/cpu
+
+# Install remaining requirements (sentence-transformers will use the CPU torch above)
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt && \
     # Pre-download the embedding model so runtime doesn't need internet access
     PYTHONPATH=/install/lib/python3.11/site-packages \
     HF_HOME=/install/hf_cache \
