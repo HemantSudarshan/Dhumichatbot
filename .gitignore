@@ -7,6 +7,10 @@
 app/.env
 *.env
 
+# Docker (kept locally, excluded from Railway deploy)
+Dockerfile
+docker-compose.yml
+
 # Python
 __pycache__/
 *.py[cod]
