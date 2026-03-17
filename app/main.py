@@ -98,8 +98,8 @@ app = FastAPI(
 cors_origins = os.environ.get("CORS_ORIGINS", "http://localhost:8080").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=cors_origins + ["https://*.railway.app"],
-    allow_origin_regex=r"https://.*\.railway\.app",
+    allow_origins=cors_origins + ["https://*.railway.app", "https://*.hf.space"],
+    allow_origin_regex=r"https://.*(\.railway\.app|\.hf\.space)",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
