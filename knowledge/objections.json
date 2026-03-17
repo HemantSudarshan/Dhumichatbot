@@ -1,0 +1,46 @@
+{
+  "already_have_insurance": {
+    "triggers": ["I already have life insurance", "I'm covered already", "I have a policy", "already have coverage", "through my employer", "work policy", "employer plan", "group plan", "company provides", "job provides", "employer life insurance"],
+    "response_en": "Many homeowners keep a separate policy specifically to protect their mortgage so their family keeps the house.",
+    "response_es": "Muchos propietarios mantienen una póliza separada específicamente para proteger su hipoteca para que su familia conserve la casa.",
+    "follow_up_en": "Would you like to see how mortgage protection differs from your current coverage?",
+    "follow_up_es": "¿Le gustaría ver cómo la protección hipotecaria difiere de su cobertura actual?",
+    "psychology": "Reframes the objection — they may have life insurance but NOT mortgage-specific protection."
+  },
+
+  "just_looking": {
+    "triggers": ["I'm just looking", "Just browsing", "Not ready to buy", "Just exploring", "Just doing research"],
+    "response_en": "No problem. Would you like a quick estimate while you're here?",
+    "response_es": "No hay problema. ¿Le gustaría una estimación rápida mientras está aquí?",
+    "follow_up_en": "It only takes 30 seconds and there's no commitment.",
+    "follow_up_es": "Solo toma 30 segundos y no hay compromiso.",
+    "psychology": "Low-pressure — keeps them engaged without feeling sold to."
+  },
+
+  "too_expensive": {
+    "triggers": ["too expensive", "can't afford", "out of my budget", "costs too much", "don't have the money"],
+    "response_en": "Many of our plans start as low as $15/month — less than a streaming subscription.",
+    "response_es": "Muchos de nuestros planes comienzan desde tan solo $15/mes — menos que una suscripción de streaming.",
+    "follow_up_en": "Would you like to see what's available in your price range?",
+    "follow_up_es": "¿Le gustaría ver qué opciones están disponibles en su rango de precio?",
+    "psychology": "Anchors to a familiar low cost to break the 'expensive' assumption."
+  },
+
+  "need_to_think": {
+    "triggers": ["need to think about it", "let me discuss with my spouse", "I'll get back to you", "give me time"],
+    "response_en": "Absolutely, take your time. Would you like me to email you a summary of what we discussed so you can review it later?",
+    "response_es": "Por supuesto, tómese su tiempo. ¿Le gustaría que le envíe un resumen de lo que discutimos para que pueda revisarlo más tarde?",
+    "follow_up_en": "That way you'll have all the details ready when you're ready to decide.",
+    "follow_up_es": "De esa manera tendrá todos los detalles listos cuando esté listo para decidir.",
+    "psychology": "Gives them space but still captures the lead via email."
+  },
+
+  "not_interested": {
+    "triggers": ["not interested", "no thanks", "maybe later", "not for me"],
+    "response_en": "No worries at all. If you ever want to revisit your options, we're here 24/7.",
+    "response_es": "No se preocupe. Si alguna vez quiere revisar sus opciones, estamos aquí las 24 horas.",
+    "follow_up_en": null,
+    "follow_up_es": null,
+    "psychology": "Graceful exit — leaves the door open for future engagement."
+  }
+}

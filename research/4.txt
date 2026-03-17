@@ -1,0 +1,69 @@
+## Section 4 — Lead Qualification Flow Details
+
+> *The DOCX defines a specific lead qualification flow. We need granular details to build it.*
+
+51. What are the **exact qualification criteria** to determine a "qualified lead" vs. "unqualified"? (Age range cutoffs, states served, coverage minimums)
+52. What **disqualifying conditions** should immediately end the flow or redirect? (e.g., wrong state, too young/old, existing coverage)
+53. For the **tobacco/smoking question**: what categories should be used? (Never, former, current, vape/e-cigarette, marijuana)
+54. What **coverage amount brackets** should the chatbot present? (Doc suggests $100k–$250k, $250k–$500k, $500k–$1M, $1M+ — confirm exact brackets)
+55. What **age range brackets** should be used? (Doc suggests Under 30, 30–39, 40–49, 50–59, 60+ — confirm and check against product eligibility)
+56. For the **homeowner question** (Q6 in the DOCX): how should the chatbot handle renters vs. owners differently in the conversation flow?
+57. What is the **ideal lead score formula**? (Doc mentions: Homeowner + $250k coverage = 5 stars — what's the full scoring matrix?)
+58. What is the **exact CTA message** after qualification? (Doc suggests "Based on your answers, you may qualify for plans between $X–$Y" — need all variants by product)
+59. How should the chatbot handle **"I'm just looking"** objection? (Doc mentions smart objection handling — need exact scripts)
+60. How should the chatbot handle **"I already have insurance"** objection? (Need recommended response and flow)
+61. What are the **5 psychology-based chatbot scripts** mentioned in the DOCX that convert at 35–45%? (Need the exact scripts or their structure)
+62. What **follow-up actions** should trigger after lead capture? (CRM entry, email notification, SMS to agent, auto-email to lead, appointment booking)
+
+
+Here are the granular details for your lead qualification flow based on the provided Intermarq Agency chatbot suggestions document. 
+
+**51. Exact qualification criteria**
+The sources do not define exact mathematical cutoffs or absolute coverage minimums to label a lead "qualified" versus "unqualified". However, the document outlines that the bot qualifies leads by gathering their desired coverage type, age range, state, tobacco use, and desired coverage amount. 
+
+**52. Disqualifying conditions**
+The only explicitly mentioned condition that acts as a hard filter is the **state of residence**, where the bot is instructed to verify if the agency is licensed in the user's state (e.g., responding, "Great, we currently serve residents of California"). The documents do not establish age cutoffs, and having existing insurance is treated as a conversational objection rather than an immediate disqualifier.
+
+**53. Tobacco/smoking categories**
+The chatbot should use three specific buttons: **Yes**, **No**, and **Occasionally**. 
+
+**54. Coverage amount brackets**
+The exact buttons the chatbot should present are:
+*   **$100,000**
+*   **$250,000**
+*   **$500,000**
+*   **$1,000,000+**
+*   **Not sure yet**
+
+**55. Age range brackets**
+The exact age brackets to be used are:
+*   **Under 30**
+*   **30-39**
+*   **40-49**
+*   **50-59**
+*   **60+**
+
+**56. Handling renters vs. owners**
+The bot should ask, "Do you currently own a home with a mortgage?" with the options **Yes**, **No**, and **Planning to buy**. While the document does not map out divergent conversation scripts for renters versus owners, it does establish that mortgage holders are the highest converting clients and instructs the AI to score renters much lower (2 stars) than homeowners (5 stars).
+
+**57. Ideal lead score formula**
+A full scoring matrix is not provided in the document. The text only offers an "Example scoring" baseline for the CRM:
+*   Homeowner + $250k coverage = **5 stars**
+*   Age 50+ mortgage protection = **4 stars**
+*   Renter + exploring = **2 stars**
+
+**58. Exact CTA message after qualification**
+The primary closing CTA in the script is: **“Based on your answers, you may qualify for coverage options. Would you like a licensed agent to prepare a personalized quote?”**. 
+Another variant suggested earlier in the qualification flow is: **“Based on your answers, you may qualify for plans between $150k–$500k.”**. Product-specific variants are not outlined in the text.
+
+**59. "I'm just looking" objection**
+The exact scripted response is: **“No problem. Would you like a quick estimate while you're here?”**.
+
+**60. "I already have insurance" objection**
+The exact scripted response is: **“Many homeowners keep a separate policy specifically to protect their mortgage so their family keeps the house.”**.
+
+**61. The 5 psychology-based chatbot scripts**
+The actual scripts are **not included** in the source document. The text merely teases them, stating: "If you want, I can also show you something extremely powerful: The 5 chatbot scripts that convert insurance website visitors into booked appointments at 35–45%. Most agencies don’t know these. They are psychology based conversation triggers". You will need to request these specific scripts from the document's author.
+
+**62. Follow-up actions after lead capture**
+Immediately following lead capture, the system should push the lead's data to a **CRM, Email, and Text notification**. In the chat interface, the bot should trigger an automatic appointment booking message stating, **"Would you like to schedule a quick consultation?"** and integrate directly with Calendly or Google Calendar.

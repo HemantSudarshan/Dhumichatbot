@@ -1,0 +1,479 @@
+                                     CHATBOT SUGGESTIONS INTERMARQ AGENCY
+
+           1?? Instant Policy Qualification (Lead Filter)
+
+Have the bot ask smart questions so you only talk to qualified prospects.
+
+Example flow:
+
+What type of coverage are you looking for?
+
+Mortgage Protection
+
+Life Insurance
+
+Final Expense
+
+Business Insurance
+
+Age range
+
+State they live in
+
+Tobacco use
+
+Coverage amount
+“Based on your answers, you may qualify for plans between $150k–$500k.”
+Let the chatbot give rough price ranges before the customer talks to you.
+
+Example:
+
+“A healthy 35-year-old non-smoker seeking $250,000 in mortgage protection coverage may pay between $30–$45/month.”
+
+This increases engagement because people love instant numbers.
+Schedule Appointment Automatically
+
+Connect the chatbot to:
+
+Calendly
+
+Google Calendar
+
+Example:
+
+“Would you like to schedule a 10-minute call to review your options?”
+
+Then they book instantly.
+Mortgage Protection Education
+
+Most people don’t understand mortgage protection insurance.
+
+Your bot should explain:
+
+• What mortgage protection is
+• How it pays off the house if you pass away
+• Difference between term life vs mortgage protection
+
+Example response:
+
+“Mortgage protection insurance ensures your family can stay in their home by paying off the remaining mortgage balance if something happens to you.”
+Lead Capture (MOST IMPORTANT)
+
+Before the visitor leaves:
+
+“Would you like a licensed agent to send you a personalized quote?”
+
+Collect:
+
+Name
+
+Email
+
+Phone
+
+Zip Code
+
+Then send leads to:
+
+CRM
+
+Email
+
+Text notification
+Smart Objection Handling
+
+Program responses for common objections:
+
+"I already have life insurance."
+Bot:
+
+“Many homeowners keep a separate policy specifically to protect their mortgage so their family keeps the house.”
+
+"I'm just looking."
+Bot:
+
+“No problem. Would you like a quick estimate while you're here?”
+Your chatbot should say:
+
+“Our agents may be offline, but I can help you get a quote started.”
+
+That means you collect leads while you sleep.
+
+?? Multilingual Mode
+
+Very important in California.
+
+Add:
+
+English
+
+Spanish
+
+You will double conversions.
+The 7 Highest Converting Insurance Chatbot Questions
+1?? What Are You Looking to Protect?
+
+This identifies the visitor’s intent immediately.
+
+Chatbot Question
+
+“What would you like to protect today?”
+
+Buttons:
+
+My Mortgage
+
+My Family
+
+Final Expenses
+
+Business Protection
+
+Just exploring
+
+Why this works:
+It lets the visitor self-identify their need, which increases engagement.
+
+2?? Coverage Amount
+
+This tells you how serious the lead is.
+
+Chatbot Question
+
+“How much coverage are you considering?”
+
+Buttons:
+
+$100,000
+
+$250,000
+
+$500,000
+
+$1,000,000+
+
+Not sure yet
+
+Serious buyers usually choose a specific amount.
+
+3?? Age Range
+
+Age determines eligibility and pricing.
+
+Chatbot Question
+
+“Which age range do you fall into?”
+
+Buttons:
+
+Under 30
+
+30-39
+
+40-49
+
+50-59
+
+60+
+
+This helps you estimate premiums instantly.
+
+4?? Tobacco Use
+
+Insurance companies price heavily based on this.
+
+Chatbot Question
+
+“Do you currently use tobacco products?”
+
+Buttons:
+
+Yes
+
+No
+
+Occasionally
+
+This dramatically improves quote accuracy.
+
+5?? State of Residence
+
+Insurance licensing is state-specific.
+
+Chatbot Question
+
+“What state do you live in?”
+
+The bot should check if you are licensed there.
+
+Example response:
+
+“Great, we currently serve residents of California.”
+
+6?? Homeowner Question (Very Powerful)
+
+This identifies mortgage protection prospects.
+
+Chatbot Question
+
+“Do you currently own a home with a mortgage?”
+
+Buttons:
+
+Yes
+
+No
+
+Planning to buy
+
+Mortgage holders are your highest converting clients.
+
+7?? Lead Capture (The Close)
+
+Now the chatbot collects the contact info.
+
+Chatbot Message
+
+“Based on your answers, you may qualify for coverage options.
+Would you like a licensed agent to prepare a personalized quote?”
+
+Fields:
+
+Name
+
+Email
+
+Phone
+
+Zip Code
+
+Bonus: Automatic Appointment Booking
+
+After they submit info, show:
+
+“Would you like to schedule a quick consultation?”
+
+Integrate with:
+
+Calendly
+
+Google Calendar
+
+Conversion Boosting Message
+
+Right after they start the chat:
+
+“Most homeowners can qualify for mortgage protection coverage in under 2 minutes.”
+
+This keeps them engaged.
+
+Advanced Feature I Highly Recommend
+
+Have Dhumi add AI lead scoring.
+
+Example scoring:
+
+Lead Type	Score
+Homeowner + $250k coverage	?????
+Renter + exploring	??
+Age 50+ mortgage protection	????
+
+Then your CRM prioritizes the best leads first.
+
+One More Powerful Feature (Almost No Agencies Use)
+
+Add license verification.
+
+Your chatbot could say:
+
+“Our agents are licensed and registered through the National Insurance Producer Registry.”
+
+This instantly builds trust.
+
+If you want, I can also show you something extremely powerful:
+
+The 5 chatbot scripts that convert insurance website visitors into booked appointments at 35–45%.
+
+Most agencies don’t know these.
+They are psychology based conversation triggers.
+3?? Age Range
+
+Age determines eligibility and pricing.
+
+Chatbot Question
+
+“Which age range do you fall into?”
+
+Buttons:
+
+Under 30
+
+30-39
+
+40-49
+
+50-59
+
+60+
+
+This helps you estimate premiums instantly.
+4?? Tobacco Use
+
+Insurance companies price heavily based on this.
+
+Chatbot Question
+
+“Do you currently use tobacco products?”
+
+Buttons:
+
+Yes
+
+No
+
+Occasionally
+
+This dramatically improves quote accuracy.
+5?? State of Residence
+
+Insurance licensing is state-specific.
+
+Chatbot Question
+
+“What state do you live in?”
+
+The bot should check if you are licensed there.
+
+Example response:
+
+“Great, we currently serve residents of California.”
+
+6?? Homeowner Question (Very Powerful)
+
+This identifies mortgage protection prospects.
+
+Chatbot Question
+
+“Do you currently own a home with a mortgage?”
+
+Buttons:
+
+Yes
+
+No
+
+Planning to buy
+
+Mortgage holders are your highest converting clients.
+
+7?? Lead Capture (The Close)
+
+Now the chatbot collects the contact info.
+
+Chatbot Message
+
+“Based on your answers, you may qualify for coverage options.
+Would you like a licensed agent to prepare a personalized quote?”
+
+Fields:
+
+Name
+
+Email
+
+Phone
+
+Zip Code
+
+Bonus: Automatic Appointment Booking
+
+After they submit info, show:
+
+“Would you like to schedule a quick consultation?”
+
+Integrate with:
+
+Calendly
+
+Google Calendar
+
+Conversion Boosting Message
+
+Right after they start the chat:
+
+“Most homeowners can qualify for mortgage protection coverage in under 2 minutes.”
+
+This keeps them engaged.
+
+Advanced Feature I Highly Recommend
+
+Have Dhumi add AI lead scoring.
+
+Example scoring:
+
+Lead Type	Score
+Homeowner + $250k coverage	?????
+Renter + exploring	??
+Age 50+ mortgage protection	????
+
+Then your CRM prioritizes the best leads first.
+
+One More Powerful Feature (Almost No Agencies Use)
+
+Add license verification.
+
+Your chatbot could say:
+
+“Our agents are licensed and registered through the National Insurance Producer Registry.”
+
+This instantly builds trust.
+
+If you want, I can also show you something extremely powerful:
+
+The 5 chatbot scripts that convert insurance website visitors into booked appointments at 35–45%.
+
+Most agencies don’t know these.
+They are psychology based conversation triggers.
+Integrate with:
+
+Calendly
+
+Google Calendar
+
+Conversion Boosting Message
+
+Right after they start the chat:
+
+“Most homeowners can qualify for mortgage protection coverage in under 2 minutes.”
+
+This keeps them engaged.
+
+Advanced Feature I Highly Recommend
+
+Have Dhumi add AI lead scoring.
+
+Example scoring:
+
+Lead Type	Score
+Homeowner + $250k coverage	?????
+Renter + exploring	??
+Age 50+ mortgage protection	????
+
+Then your CRM prioritizes the best leads first.
+
+One More Powerful Feature (Almost No Agencies Use)
+
+Add license verification.
+
+Your chatbot could say:
+
+“Our agents are licensed and registered through the National Insurance Producer Registry.”
+
+This instantly builds trust.
+
+If you want, I can also show you something extremely powerful:
+
+The 5 chatbot scripts that convert insurance website visitors into booked appointments at 35–45%.
+
+Most agencies don’t know these.
+They are psychology based conversation triggers.

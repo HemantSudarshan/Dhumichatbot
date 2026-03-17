@@ -1,0 +1,87 @@
+{
+  "regulations": {
+    "sb_263": {
+      "name": "Senate Bill 263",
+      "effective_date": "2025-01-01",
+      "applies_to": [
+        "annuities",
+        "non_term_life_with_cash_value"
+      ],
+      "requires": [
+        "buyers_guide",
+        "fee_disclosure",
+        "conflict_of_interest_disclosure",
+        "suitability_assessment",
+        "8_hour_training_completion"
+      ],
+      "training_hours": 8,
+      "suitability_fields": [
+        "age",
+        "annual_income",
+        "financial_situation",
+        "existing_assets",
+        "liquidity_needs",
+        "liquid_net_worth",
+        "risk_tolerance",
+        "tax_status",
+        "government_benefits_intent"
+      ],
+      "enforcement": "California Department of Insurance (CDI)"
+    },
+    "prop_103": {
+      "name": "Proposition 103",
+      "applies_to": [
+        "property_and_casualty"
+      ],
+      "not_applicable_to": [
+        "life_insurance",
+        "annuities"
+      ],
+      "description": "Requires prior CDI approval for P&C rate changes. Does NOT affect life insurance or annuity pricing display."
+    },
+    "cic_10509": {
+      "name": "California Insurance Code Section 10509",
+      "type": "anti_churning_replacement_rules",
+      "trigger": "existing_policy_lapsed_surrendered_or_25pct_loan",
+      "required_actions": [
+        "Collect applicant-signed replacement statement",
+        "Issue formal Notice Regarding Replacement",
+        "Written comparison of premiums, cash values, death benefits (old vs new)"
+      ],
+      "penalty": "License action by CDI"
+    },
+    "clhiga": {
+      "name": "California Life and Health Insurance Guarantee Association",
+      "life_death_benefit_limit_usd": 300000,
+      "annuity_present_value_limit_usd": 250000,
+      "life_cash_value_limit_usd": 100000,
+      "note": "Safety net if insurer becomes insolvent. NOT a government guarantee."
+    }
+  },
+  "disclosures": {
+    "ai_disclosure": "This is an automated assistant. A licensed agent will review your information. For personalized advice, please speak with a licensed professional.",
+    "ai_disclosure_es": "Este es un asistente automatizado. Un agente licenciado revisará su información. Para asesoría personalizada, por favor hable con un profesional licenciado.",
+    "price_disclaimer": "These are estimated ranges for illustration purposes only. Actual rates are determined through underwriting and may vary based on your health, lifestyle, and other factors.",
+    "price_disclaimer_es": "Estos son rangos estimados solo con fines ilustrativos. Las tarifas reales se determinan a través de la suscripción y pueden variar según su salud, estilo de vida y otros factores.",
+    "suitability_disclaimer": "Before recommending annuities or non-term life insurance, a licensed agent must review your financial suitability, including income, assets, risk tolerance, and tax status (SB 263, effective Jan 1, 2025).",
+    "suitability_disclaimer_es": "Antes de recomendar anualidades o seguros de vida no a término, un agente licenciado debe revisar su idoneidad financiera, incluyendo ingresos, activos, tolerancia al riesgo y situación fiscal (SB 263, vigente desde el 1 de enero de 2025).",
+    "data_collection_notice": "By continuing, you agree that the information you share may be used to prepare insurance quotes. See our Privacy Policy for details.",
+    "data_collection_notice_es": "Al continuar, usted acepta que la información que comparte puede ser utilizada para preparar cotizaciones de seguros. Consulte nuestra Política de Privacidad para más detalles.",
+    "nipr_statement": "Our agents are licensed and registered through the National Insurance Producer Registry (NIPR).",
+    "nipr_statement_es": "Nuestros agentes están licenciados y registrados a través del Registro Nacional de Productores de Seguros (NIPR).",
+    "clhiga_notice": "Insurance products are not FDIC-insured or government-guaranteed. California residents are protected up to CLHIGA limits if an insurer fails.",
+    "clhiga_notice_es": "Los productos de seguros no están asegurados por la FDIC ni garantizados por el gobierno. Los residentes de California están protegidos hasta los límites de CLHIGA en caso de quiebra de una aseguradora."
+  },
+  "agent_requirements": {
+    "non_term_life_cash_value_training_hours": 4,
+    "sb_263_best_interest_training_hours": 8,
+    "license_verification_standard": "ACORD TXLife 228 Producer Inquiry",
+    "ca_license_required": true,
+    "nipr_registration_required": true
+  },
+  "acord_normalization": {
+    "lead_standard": "TXLife 103 (New Business Submission)",
+    "agent_verify_standard": "TXLife 228 (Producer Inquiry)",
+    "data_format": "JSON (NGDS - Next Generation Digital Standards)"
+  }
+}

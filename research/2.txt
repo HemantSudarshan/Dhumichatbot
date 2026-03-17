@@ -1,0 +1,69 @@
+## Section 2 — Product & Coverage Deep Dive
+
+> *The chatbot handles 4 product lines per the DOCX: Mortgage Protection, Life, Final Expense, and Business Insurance. We need exact details for each.*
+
+### Mortgage Protection Insurance
+11. What specific **mortgage protection** products does Intermarq offer? (Carrier names, product names, policy terms)
+12. What are the **coverage amount ranges** for mortgage protection? (Document mentions $150k–$500k — confirm exact range)
+13. What are the **typical monthly premiums** by age bracket for mortgage protection? (Doc mentions $30–$45/month for healthy 35-year-old non-smoker at $250k — need full table)
+14. What are the **underwriting requirements** — is this simplified issue, guaranteed issue, or fully underwritten?
+15. What **health conditions** disqualify or rate-up applicants for mortgage protection?
+16. What is the **age eligibility range** for mortgage protection? (Doc mentions Under 30, 30–39, 40–49, 50–59, 60+)
+17. How does mortgage protection differ from **standard term life** in policy structure and benefits?
+18. What are the **key selling points** of mortgage protection vs. traditional life insurance?
+19. What **riders** are available (accelerated death benefit, waiver of premium, disability rider)?
+
+### Term Life Insurance
+20. What **term life products** does Intermarq offer? (10, 15, 20, 30 year terms, carrier names)
+21. What are the **coverage limits** available? (Doc mentions up to $1M+)
+22. What is the **pricing structure** by age/gender/health class for term life?
+23. What **conversion options** exist (term to permanent) and are they available with all carriers?
+24. What medical exams or lab work are required vs. **no-exam options**?
+
+### Final Expense / Burial Insurance
+25. What **final expense products** does Intermarq offer? (Guaranteed issue vs. simplified issue)
+26. What are the **coverage ranges** for final expense? (Typically $5k–$50k — confirm)
+27. What are the **age eligibility** requirements for final expense? (Typically 50–85)
+28. What are the **typical monthly premiums** for final expense by age?
+29. What are the **graded benefit** vs. **immediate benefit** policy structures offered?
+30. What **health questions** are asked on simplified issue final expense applications?
+
+### Business Insurance
+31. What **business insurance products** does Intermarq offer? (BOP, GL, WC, Professional Liability, Cyber, Key Person)
+32. What **industries/business types** does the agency commonly write in California?
+33. What are the **minimum premium** ranges for each business line?
+34. What **information** is needed to quote business insurance? (Revenue, payroll, employee count, NAICS code, years in business)
+35. Does the agency write **Workers' Compensation** in California? What carriers?
+36. What **buy-sell agreement funding** solutions does the agency offer?
+
+
+
+Here are the answers to your deep-dive product questions based on the provided documents. 
+
+Please note that **most of the specific product matrices, underwriting guidelines, and full pricing tables are missing from the current source material**. The provided documents outline general California regulations and the suggested conversational flow for the chatbot, but do not contain Intermarq Agency's internal carrier manuals. 
+
+Here is what can be answered from the available text:
+
+### Mortgage Protection Insurance
+*   **11. Specific products/carriers:** The sources do not contain this information.
+*   **12. Coverage amount ranges:** The chatbot script is designed to offer selection buttons for **$100,000, $250,000, $500,000, and $1,000,000+**. It also suggests an automated response template stating, “Based on your answers, you may qualify for plans between $150k–$500k”.
+*   **13. Typical monthly premiums:** A full table is not provided. The only pricing data available is a single script example: **“A healthy 35-year-old non-smoker seeking $250,000 in mortgage protection coverage may pay between $30–$45/month”**.
+*   **14 & 15. Underwriting & Health Conditions:** The sources do not detail specific underwriting requirements or disqualifying health conditions. However, the chatbot is programmed to ask about **tobacco use** (Yes, No, Occasionally) because "insurance companies price heavily based on this".
+*   **16. Age eligibility range:** The chatbot captures age using the following brackets: **Under 30, 30-39, 40-49, 50-59, and 60+**. 
+*   **17 & 18. Difference from Term Life & Key Selling Points:** The documents state the chatbot should educate the user on the difference between term life and mortgage protection. The primary selling point highlighted for mortgage protection is that it **"ensures your family can stay in their home by paying off the remaining mortgage balance if something happens to you"**. It is framed as a targeted policy so a "family keeps the house". 
+*   **19. Riders:** The sources do not mention specific riders.
+
+### Term Life Insurance
+*   **20. Term life products & carriers:** The sources do not contain this information.
+*   **21. Coverage limits:** The chatbot script accommodates requests for **$1,000,000+** in coverage. 
+*   **22-24. Pricing, conversions, and medical exams:** The sources do not provide pricing structures, conversion options, or exam requirements for Intermarq's term life offerings. 
+
+### Final Expense / Burial Insurance
+*   **25-30. Final Expense Details:** The chatbot is designed to offer "Final Expenses" as a primary coverage option. However, there is no specific information provided regarding Intermarq's final expense carriers, coverage ranges, exact age restrictions, monthly premiums, graded benefits, or health questions. 
+
+### Business Insurance
+*   **31-36. Business Insurance Details:** The chatbot offers "Business Protection" as an initial selection option. Beyond this, the sources contain zero details regarding the specific business insurance lines (BOP, GL, WC, etc.), target industries, premiums, or buy-sell agreement funding offered by the agency.
+
+**Next Steps:**
+Because the provided documents focus heavily on chatbot conversation psychology and California legal frameworks, you will need to acquire Intermarq Agency's specific product guides, carrier lists, and rate sheets to complete these sections of the chatbot build.
+

@@ -1,0 +1,102 @@
+# Final Conversion & Security Features — Implementation Plan
+
+Add 4 features to transform the chatbot from a demo into a revenue-generating, production-ready MVP.
+
+## Audit: What Already Exists ✅
+
+| Feature | Status | Location |
+|---------|--------|----------|
+| Loss Aversion hook (Step 1) | ✅ Done | `index.html:421-431` |
+| NIPR Trust Verification hook (Step 4) | ✅ Done | `index.html:433-440` |
+| Social Proof hook (after lead) | ✅ Done | `index.html:496-500` |
+| Urgency / Scarcity hooks | ✅ Done | `index.html:517, 599-602` |
+| Reciprocity hook | ✅ Done | `index.html:621-625` |
+| "Just Looking" reframe | ✅ Done | [objections.json](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/knowledge/objections.json) → [checkObjection()](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html#446-464) |
+| Dynamic pricing by age + coverage | ✅ Done | [showPricing()](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html#571-627) + [pricing.json](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/knowledge/pricing.json) |
+| Tobacco multiplier note | ✅ Done | `index.html:589-597` |
+| AI Lead Scoring (5-star) | ✅ Done | [calcLeadScore()](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html#542-570) |
+| SB 263 compliance disclaimer | ✅ Done | `index.html:604-607` |
+| Calendly link (opens in new tab) | ✅ Done | `index.html:522` |
+
+---
+
+## What's NEW (4 Features)
+
+---
+
+### Feature 1: Free-Text RAG Input + 3-Chat Limiter
+
+After the 7-step button flow completes, unlock a text input box that hits the RAG API (`POST /api/v1/chat`). After 3 free-text questions, auto-trigger the Calendly appointment CTA.
+
+#### [MODIFY] [index.html](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html)
+
+**Changes:**
+- Add `let freeTextCount = 0;` to STATE section
+- Add new `showRAGInput()` function that renders a persistent text input
+- In [endSession()](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html#659-671), call `showRAGInput()` instead of ending the conversation
+- `showRAGInput` sends the user's question to `http://localhost:8000/api/v1/chat` via `fetch()`
+- Each successful RAG response increments `freeTextCount`
+- When `freeTextCount === 3`, disable the text input and inject the appointment CTA with inline Calendly popup
+- Add CSS for `.rag-input-bar` (sticky bottom input)
+
+---
+
+### Feature 2: Inline Calendly Popup Widget
+
+Replace the `window.open()` call with Calendly's official popup embed widget so the calendar opens inside an overlay, not a new tab.
+
+#### [MODIFY] [index.html](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html)
+
+**Changes:**
+- Add `<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">` to `<head>`
+- Add `<script src="https://assets.calendly.com/assets/external/widget.js"></script>` to `<head>`
+- Replace all `window.open('https://calendly.com/...')` calls with `Calendly.initPopupWidget({url: 'https://calendly.com/intermarq-agency/10min'})`
+- This applies in two places: the post-lead CTA (line ~522) and the new 3-chat limiter trigger
+
+---
+
+### Feature 3: Cloudflare Turnstile CAPTCHA on Lead Capture
+
+Protect the lead form and Calendly link from spam bots using Cloudflare Turnstile (free, privacy-friendly, invisible CAPTCHA).
+
+> [!IMPORTANT]
+> Cloudflare Turnstile requires a **site key**. For MVP/demo purposes, we will use Cloudflare's public test keys:
+> - Site key: `1x00000000000000000000AA` (always passes)
+> - Production keys must be obtained from the Cloudflare dashboard before deployment.
+
+#### [MODIFY] [index.html](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html)
+
+**Changes:**
+- Add `<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>` to `<head>`
+- In [addLeadForm()](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html#312-336), insert a `<div class="cf-turnstile" data-sitekey="..." data-callback="onCaptchaPass"></div>` widget inside the form
+- The submit button is initially disabled; it enables only after `onCaptchaPass()` is called
+- [submitLead()](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html#465-541) reads the Turnstile token from `document.querySelector('[name="cf-turnstile-response"]').value`
+- In a production deployment, the FastAPI backend would verify this token server-side via the Turnstile `/siteverify` endpoint
+
+---
+
+### Feature 4: Dynamic Tobacco-Adjusted Pricing Range
+
+Currently the tobacco scenario shows a *note* but doesn't adjust the actual dollar range. We will compute real adjusted ranges.
+
+#### [MODIFY] [index.html](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html)
+
+**Changes in [showPricing()](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html#571-627):**
+- Parse the base `range` string (e.g., `"$30-$45/month"`) into min/max numbers
+- If `isTobacco`, multiply both by 1.5 and rebuild the string
+- Display the adjusted range directly in the price card instead of just a warning note
+
+---
+
+## Verification Plan
+
+### Browser Testing
+1. Open `http://localhost:8080/demo/index.html`
+2. Complete the 7-step flow → verify dynamic pricing adjusts for tobacco
+3. After lead submission, verify Calendly popup opens inline (not new tab)
+4. After the flow ends, verify RAG text input appears
+5. Type 3 free-text questions → verify the 3rd triggers appointment CTA
+6. Verify CAPTCHA widget renders inside the lead form
+
+### Snyk SAST Scan
+- Run `snyk_code_scan` on the modified [index.html](file:///c:/Projects/DHUMI%20Projects/US%20insurance%20chatbot/demo/index.html) to ensure no new vulnerabilities

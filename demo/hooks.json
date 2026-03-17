@@ -1,0 +1,38 @@
+{
+  "greeting_hook": {
+    "text_en": "Most homeowners can qualify for mortgage protection coverage in under 2 minutes.",
+    "text_es": "La mayoría de los propietarios pueden calificar para cobertura de protección hipotecaria en menos de 2 minutos.",
+    "position": "start_of_chat",
+    "purpose": "Creates urgency and sets expectation of a fast, easy process."
+  },
+
+  "trust_verification": {
+    "text_en": "Our agents are licensed and registered through the National Insurance Producer Registry.",
+    "text_es": "Nuestros agentes están licenciados y registrados a través del Registro Nacional de Productores de Seguros.",
+    "position": "during_chat",
+    "purpose": "Builds trust by referencing official licensing."
+  },
+
+  "offline_fallback": {
+    "text_en": "Our agents may be offline, but I can help you get a quote started.",
+    "text_es": "Nuestros agentes pueden estar fuera de línea, pero puedo ayudarle a comenzar una cotización.",
+    "position": "when_agents_offline",
+    "purpose": "Ensures lead capture continues even outside business hours."
+  },
+
+  "appointment_cta": {
+    "text_en": "Would you like to schedule a 10-minute call to review your options?",
+    "text_es": "¿Le gustaría programar una llamada de 10 minutos para revisar sus opciones?",
+    "alt_en": "Would you like to schedule a quick consultation?",
+    "alt_es": "¿Le gustaría programar una consulta rápida?",
+    "position": "after_lead_capture",
+    "purpose": "Drives the 35-45% appointment conversion target."
+  },
+
+  "closing_reassurance": {
+    "text_en": "No credit card required. No commitment. Just a personalized quote from a licensed California agent.",
+    "text_es": "No se requiere tarjeta de crédito. Sin compromiso. Solo una cotización personalizada de un agente licenciado de California.",
+    "position": "before_form_submit",
+    "purpose": "Removes friction at the final conversion point."
+  }
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Solution Development"
+  short_description: "Turn problem statements into AI systems"
+  default_prompt: "Use $ai-solution-dev to turn this client problem into an AI architecture and implementation plan."
+
+policy:
+  allow_implicit_invocation: true

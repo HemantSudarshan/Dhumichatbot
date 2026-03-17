@@ -1,0 +1,160 @@
+[
+  {
+    "id": "faq_001",
+    "question": "What is mortgage protection insurance?",
+    "answer": "Mortgage protection insurance ensures your family can stay in their home by paying off the remaining mortgage balance if something happens to you.",
+    "category": "mortgage_protection",
+    "keywords": [
+      "mortgage",
+      "house",
+      "home",
+      "loan",
+      "protection"
+    ]
+  },
+  {
+    "id": "faq_002",
+    "question": "What is the difference between term life and mortgage protection?",
+    "answer": "Mortgage protection is a targeted policy so your family keeps the house — it pays off the mortgage specifically. Term life is broader income replacement for a fixed period and the benefit can be used for anything.",
+    "category": "education",
+    "keywords": [
+      "term life",
+      "mortgage protection",
+      "difference",
+      "compare"
+    ]
+  },
+  {
+    "id": "faq_003",
+    "question": "What does SB 263 require?",
+    "answer": "Senate Bill 263 (effective January 1, 2025) requires agents selling annuities and non-term life insurance to: act in the client's best interest, provide a buyer's guide, disclose all fees and conflicts of interest, and complete an 8-hour training course.",
+    "category": "compliance",
+    "keywords": [
+      "SB 263",
+      "best interest",
+      "annuity",
+      "disclosure",
+      "regulation",
+      "training"
+    ]
+  },
+  {
+    "id": "faq_004",
+    "question": "What is the CLHIGA protection limit?",
+    "answer": "The California Life and Health Insurance Guarantee Association protects policyholders if an insurer fails: up to $300,000 for life insurance death benefits, $250,000 for annuity present value, and $100,000 for cash value.",
+    "category": "compliance",
+    "keywords": [
+      "CLHIGA",
+      "guarantee",
+      "insurer fails",
+      "protection",
+      "limit"
+    ]
+  },
+  {
+    "id": "faq_005",
+    "question": "What is final expense insurance?",
+    "answer": "Final expense insurance covers funeral costs, medical bills, and end-of-life expenses so your family isn't financially burdened. Coverage typically ranges from $5,000 to $50,000 with simplified underwriting for ages 50-85.",
+    "category": "final_expense",
+    "keywords": [
+      "final expense",
+      "burial",
+      "funeral",
+      "end of life",
+      "death benefit"
+    ]
+  },
+  {
+    "id": "faq_006",
+    "question": "What is indexed universal life (IUL)?",
+    "answer": "Indexed Universal Life is a flexible permanent life policy where cash value grows based on a market index (like the S&P 500) with a guaranteed floor against loss. It offers tax-deferred growth and flexible premium payments.",
+    "category": "education",
+    "keywords": [
+      "IUL",
+      "indexed universal life",
+      "cash value",
+      "S&P 500",
+      "floor"
+    ]
+  },
+  {
+    "id": "faq_007",
+    "question": "What is an annuity?",
+    "answer": "An annuity is a contract with an insurance company where you make payments (lump sum or installments) and the insurer provides guaranteed income in retirement. Types include fixed (guaranteed rate), indexed (tied to a market index), and variable (invested in the market).",
+    "category": "annuities",
+    "keywords": [
+      "annuity",
+      "retirement",
+      "income",
+      "fixed",
+      "indexed",
+      "variable"
+    ]
+  },
+  {
+    "id": "faq_008",
+    "question": "Does Proposition 103 affect life insurance rates?",
+    "answer": "No. Proposition 103 requires prior approval for property and casualty insurance rates (auto, homeowners) only. It does NOT apply to life insurance or annuity pricing.",
+    "category": "compliance",
+    "keywords": [
+      "Prop 103",
+      "proposition 103",
+      "life insurance",
+      "rates",
+      "CA"
+    ]
+  },
+  {
+    "id": "faq_009",
+    "question": "How much does mortgage protection cost?",
+    "answer": "A healthy 35-year-old non-smoker seeking $250,000 in mortgage protection coverage may pay between $30-$45 per month. Rates vary by age, health, tobacco use, and coverage amount. These are estimated ranges — actual rates are determined through underwriting.",
+    "category": "pricing",
+    "keywords": [
+      "cost",
+      "price",
+      "rate",
+      "monthly",
+      "how much",
+      "premium"
+    ]
+  },
+  {
+    "id": "faq_010",
+    "question": "What is the difference between whole life and term life?",
+    "answer": "Term life provides coverage for a fixed period (10, 20, or 30 years) at lower cost — ideal for mortgage protection while the loan is outstanding. Whole life is permanent coverage that builds cash value over time and never expires, but costs more.",
+    "category": "education",
+    "keywords": [
+      "whole life",
+      "term life",
+      "permanent",
+      "cash value",
+      "difference"
+    ]
+  },
+  {
+    "id": "faq_011",
+    "question": "What is key person insurance?",
+    "answer": "Key person insurance is a life insurance policy taken out by a business on a key employee or owner. If that person passes away, the death benefit helps the business survive the financial loss, recruit a replacement, or fund a buy-sell agreement between partners.",
+    "category": "business_protection",
+    "keywords": [
+      "key person",
+      "business",
+      "owner",
+      "buy-sell",
+      "partner"
+    ]
+  },
+  {
+    "id": "faq_012",
+    "question": "What is ACORD and TXLife 103?",
+    "answer": "ACORD is the insurance industry standards organization. TXLife 103 is the ACORD standard for New Business Submission — it defines how insurance applications are formatted and transmitted between agents, brokers, and carriers for straight-through processing.",
+    "category": "technical",
+    "keywords": [
+      "ACORD",
+      "TXLife",
+      "standard",
+      "submission",
+      "carrier"
+    ]
+  }
+]

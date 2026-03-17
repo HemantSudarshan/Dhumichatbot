@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Documentation"
+  short_description: "Generate and maintain AI system docs"
+  default_prompt: "Use $documentation to generate the right runbook, model card, ADR, or API documentation for this AI system."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,111 @@
+{
+  "flow_version": "1.0-MVP",
+  "total_steps": 7,
+
+  "step_1": {
+    "id": "coverage_type",
+    "question_en": "What would you like to protect today?",
+    "question_es": "¿Qué le gustaría proteger hoy?",
+    "buttons_en": ["My Mortgage", "My Family", "Final Expenses", "Business Protection", "Just exploring"],
+    "buttons_es": ["Mi Hipoteca", "Mi Familia", "Gastos Finales", "Protección Empresarial", "Solo explorando"],
+    "purpose": "Identifies the visitor's intent immediately — mortgage vs family protection vs final expense."
+  },
+
+  "step_2": {
+    "id": "coverage_amount",
+    "question_en": "How much coverage are you considering?",
+    "question_es": "¿Cuánta cobertura está considerando?",
+    "buttons_en": ["$100,000", "$250,000", "$500,000", "$1,000,000+", "Not sure yet"],
+    "buttons_es": ["$100,000", "$250,000", "$500,000", "$1,000,000+", "Aún no estoy seguro"],
+    "purpose": "This helps estimate premiums instantly."
+  },
+
+  "step_3": {
+    "id": "age_range",
+    "question_en": "Which age range do you fall into?",
+    "question_es": "¿En qué rango de edad se encuentra?",
+    "buttons_en": ["Under 30", "30-39", "40-49", "50-59", "60+"],
+    "buttons_es": ["Menor de 30", "30-39", "40-49", "50-59", "60+"],
+    "purpose": "Age determines eligibility and pricing."
+  },
+
+  "step_4": {
+    "id": "tobacco_use",
+    "question_en": "Do you currently use tobacco products?",
+    "question_es": "¿Actualmente usa productos de tabaco?",
+    "buttons_en": ["Yes", "No", "Occasionally"],
+    "buttons_es": ["Sí", "No", "Ocasionalmente"],
+    "purpose": "Insurance companies price heavily based on tobacco use."
+  },
+
+  "step_5": {
+    "id": "state",
+    "question_en": "What state do you live in?",
+    "question_es": "¿En qué estado vive?",
+    "response_ca_en": "Great, we currently serve residents of California.",
+    "response_ca_es": "Genial, actualmente atendemos a residentes de California.",
+    "response_non_ca_en": "We currently only serve residents of California, but we may expand soon. Would you like to be notified?",
+    "response_non_ca_es": "Actualmente solo atendemos a residentes de California, pero podemos expandirnos pronto. ¿Le gustaría ser notificado?",
+    "purpose": "Filters for California residency — required for compliance."
+  },
+
+  "step_6": {
+    "id": "homeowner_status",
+    "question_en": "Do you currently own a home with a mortgage?",
+    "question_es": "¿Actualmente es dueño de una casa con hipoteca?",
+    "buttons_en": ["Yes", "No", "Planning to buy"],
+    "buttons_es": ["Sí", "No", "Planeo comprar"],
+    "purpose": "Homeowners with mortgages are the highest-value leads."
+  },
+
+  "step_7": {
+    "id": "lead_capture",
+    "question_en": "Based on your answers, you may qualify for coverage options. Would you like a licensed agent to prepare a personalized quote?",
+    "question_es": "Con base en sus respuestas, podría calificar para opciones de cobertura. ¿Le gustaría que un agente licenciado le prepare una cotización personalizada?",
+    "fields": ["name", "email", "phone", "zip_code"],
+    "field_labels_en": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "zip_code": "Zip Code"
+    },
+    "field_labels_es": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Número de teléfono",
+      "zip_code": "Código postal"
+    },
+    "destinations": ["crm", "email_notification", "text_notification"],
+    "purpose": "The close — captures lead data and routes to CRM."
+  },
+
+  "lead_scoring": {
+    "model": "simple_rule_engine",
+    "rules": [
+      {"condition": "Homeowner + $250k coverage", "score": 5, "label": "⭐⭐⭐⭐⭐"},
+      {"condition": "Age 50+ mortgage protection", "score": 4, "label": "⭐⭐⭐⭐"},
+      {"condition": "Family with children", "score": 3, "label": "⭐⭐⭐"},
+      {"condition": "Renter + exploring", "score": 2, "label": "⭐⭐"},
+      {"condition": "Out of state / unqualified", "score": 1, "label": "⭐"}
+    ],
+    "note": "Simple IF/THEN rule engine — CRM prioritizes highest-score leads first."
+  },
+
+  "appointment_booking": {
+    "enabled": true,
+    "providers": ["calendly", "google_calendar"],
+    "cta_en": "Would you like to schedule a 10-minute call to review your options?",
+    "cta_es": "¿Le gustaría programar una llamada de 10 minutos para revisar sus opciones?",
+    "scheduling_payload": {
+      "lead_name": "{{name}}",
+      "lead_email": "{{email}}",
+      "lead_phone": "{{phone}}",
+      "product_interest": "{{coverage_type}}",
+      "preferred_language": "{{language}}",
+      "lead_score": "{{lead_score}}",
+      "session_id": "{{session_id}}"
+    }
+  },
+
+  "supported_languages": ["en", "es"]
+}

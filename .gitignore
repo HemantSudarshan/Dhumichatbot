@@ -1,0 +1,50 @@
+# ─────────────────────────────────────────────────────────────
+#  Intermarq Agency — .gitignore
+# ─────────────────────────────────────────────────────────────
+
+# Secrets — NEVER commit API keys
+.env
+app/.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# ML / Data
+chroma_db/
+mlruns/
+*.chroma
+*.db
+
+# Logs & temp
+*.log
+*.tmp
+feedback_log.json
+
+# Node
+node_modules/
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.dockerignore

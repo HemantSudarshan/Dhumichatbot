@@ -1,0 +1,7 @@
+interface:
+  display_name: "Data Pipeline and Evaluation"
+  short_description: "Clean data, evaluate models, and load test"
+  default_prompt: "Use $data-pipeline to clean this dataset, define metrics, and plan evaluation and load testing."
+
+policy:
+  allow_implicit_invocation: true

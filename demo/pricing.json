@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "source": "Industry averages — NOT carrier-specific",
+    "verified_data_point": "CHATBOT SUGGESTIONS INTERMARQ AGENCY.docx",
+    "disclaimer": "Estimated ranges for illustration only. Actual rates are determined through underwriting and may vary.",
+    "display_strategy": "ranges_only",
+    "always_show_disclaimer": true
+  },
+  "mortgage_protection": {
+    "docx_verified_example": {
+      "profile": "Healthy 35-year-old non-smoker",
+      "coverage": "$250,000",
+      "range": "$30-$45/month",
+      "source": "CHATBOT SUGGESTIONS INTERMARQ AGENCY.docx"
+    },
+    "rates_by_age_non_smoker": {
+      "under_30": {
+        "250k": "$22-$35/month",
+        "500k": "$40-$60/month",
+        "1m": "$75-$110/month"
+      },
+      "30_39": {
+        "250k": "$30-$45/month",
+        "500k": "$55-$80/month",
+        "1m": "$100-$150/month"
+      },
+      "40_49": {
+        "250k": "$45-$70/month",
+        "500k": "$80-$120/month",
+        "1m": "$150-$220/month"
+      },
+      "50_59": {
+        "250k": "$70-$110/month",
+        "500k": "$120-$185/month",
+        "1m": "$220-$340/month"
+      },
+      "60_plus": {
+        "250k": "$110-$170/month",
+        "500k": "$185-$290/month",
+        "1m": "$340-$530/month"
+      }
+    },
+    "tobacco_multiplier": 1.5,
+    "tobacco_note": "Multiply non-smoker rate x1.5 for tobacco users"
+  },
+  "final_expense": {
+    "typical_range": "$15-$100/month",
+    "typical_coverage": "$5,000-$50,000",
+    "note": "Industry typical. No agency-specific rates available for MVP."
+  },
+  "family_life": {
+    "note": "Term life is typically the least expensive per dollar of coverage. No carrier-specific rates available for MVP display."
+  },
+  "business_protection": {
+    "note": "Highly variable by business size, industry, and coverage type. No generic range appropriate without underwriting context."
+  }
+}

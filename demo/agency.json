@@ -1,0 +1,12 @@
+{
+  "name": "Intermarq Agency",
+  "license_ca": "PLACEHOLDER-DOI-LICENSE",
+  "npn": "PLACEHOLDER-NPN",
+  "phone": "(XXX) XXX-XXXX",
+  "email": "info@intermarqagency.com",
+  "website": "https://intermarqagency.com",
+  "calendly_url": "https://calendly.com/intermarq-agency/10min",
+  "hours": "Mon–Fri 9am–5pm PT",
+  "address": "California, USA",
+  "_note": "Replace PLACEHOLDER values with real agency data before production deployment."
+}

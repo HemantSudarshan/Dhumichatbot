@@ -1,0 +1,124 @@
+## Section 11 — Security, Privacy & Data Handling
+
+> *PII is being collected (name, phone, email, health info). Must be handled carefully.*
+
+106. What **encryption standards** are required for storing PII collected by the chatbot?
+107. How long should **conversation transcripts** be retained?
+108. What **consent language** must be shown before collecting personal information?
+109. Should users be able to **request data deletion** (CCPA right to delete)?
+110. What **third-party data processors** will have access to chatbot data? (CRM, email provider, SMS provider)
+111. Is a **privacy impact assessment** required before deploying the chatbot?
+
+---
+
+
+
+
+
+
+Here are the answers to your analytics and optimization questions based on the provided strategy and architecture documents. 
+
+Similar to previous sections, the documents do not outline Intermarq Agency's specific internal KPIs, reporting requirements, or A/B testing roadmaps. 
+
+**99–101. Target conversion rates:**
+The sources do not define specific target conversion rates for "conversations to qualified leads" or "appointments to policy binding." The only specific conversion metric mentioned in the documents is a claim that using the 5 psychology-based chatbot scripts can **"convert insurance website visitors into booked appointments at 35–45%"**. 
+
+**102. Drop-off metrics to track:**
+The specific conversational drop-off points to track at each step of the qualification flow are not detailed. However, from a technical perspective, the architecture blueprint states that the system will use **Azure AI Foundry Observability, Application Insights, and OpenTelemetry** to capture real-time telemetry, including the latency of each tool call, token consumption, and reasoning traces. 
+
+**103. User satisfaction survey:**
+The provided documents do not mention whether the chatbot should include a user satisfaction survey, such as a thumbs up/down or Net Promoter Score (NPS) mechanism.
+
+**104. A/B tests:**
+The sources do not specify which A/B tests (e.g., greeting message variants, CTA copy, or flow order) should be run initially. 
+
+**105. Monthly reporting:**
+The specific monthly reporting deliverables for the agency (such as total conversations, policies bound, or revenue attributed) are not outlined in the sources. The documents only note that the Azure AI Foundry platform includes an **Evaluation Dashboard** for testing, monitoring metrics, and simulating edge-case queries.
+
+**Next Steps:**
+To finalize Section 10, you will need to sit down with Intermarq Agency stakeholders to establish their baseline KPIs, define their desired monthly reporting format, and determine what specific A/B tests they want to prioritize post-launch. 
+
+Since we have now gone through all 10 sections, you should have a clear list of the exact business, product, and operational details you need to collect from the agency to complete the end-to-end chatbot build!
+
+
+
+## Section 12 — Edge Cases & Error Handling
+
+> *Handle unexpected scenarios gracefully.*
+
+112. How should the chatbot respond to **off-topic questions** (e.g., auto insurance, homeowners, health insurance — products not in the DOCX scope)?
+113. Should the chatbot handle **claims-related questions** or redirect to a phone number?
+114. How should the chatbot handle **minors** who interact with it? (Under 18)
+115. What happens if the chatbot **cannot determine eligibility**? (Edge case health conditions, unusual coverage amounts)
+116. How should the chatbot handle **abusive or inappropriate messages**?
+117. What is the **fallback message** when the chatbot doesn't understand a query?
+118. Should there be a **"talk to a human"** button always visible?
+
+---
+
+
+
+Here are the answers to your edge case and error handling questions based on the provided strategy and architecture documents. 
+
+Similar to some operational specifics in previous sections, the documents heavily detail the technical backend for error recovery, but do not provide the exact customer-facing scripts for every edge case.
+
+**112. Off-topic questions (auto, homeowners, health):** 
+The sources do not explicitly script a response for off-topic product inquiries. The chatbot is designed as a Minimum Viable Product (MVP) tightly scoped for "high-conversion lead generation". Technically, the **Orchestrator Agent** acts as the conversational router to interpret initial intent, limiting the initial selection strictly to Mortgage, Family, Final Expenses, or Business Protection. Off-topic queries would likely fall outside this structured state machine, but a specific redirect script is not provided.
+
+**113. Claims-related questions:** 
+Handling claims is not within the defined scope of the current chatbot. The architecture blueprint notes that the MVP is "focused exclusively on high-conversion lead generation and intelligent routing". There is no mention of redirecting users to a claims phone number or claims department. 
+
+**114. Handling minors (Under 18):** 
+The sources do not define specific logic for handling minors. The chatbot's age qualification node simply groups all younger users into a broad **"Under 30"** bracket. 
+
+**115. Cannot determine eligibility (Edge cases):** 
+If the chatbot encounters an edge case that triggers a compliance violation (e.g., someone whose assets disqualify them due to Medi-Cal limits), the system does not simply break. The architecture deploys a **Self-Healing Agent** to function as an error-recovery mechanism. If the Compliance Agent (backed by the Open Policy Agent) flags a violation or denies a transaction, the Self-Healing Agent "dynamically formulates a corrective path (e.g., asking the user to adjust the coverage amount to satisfy Medi-Cal limits)". 
+
+**116. Abusive or inappropriate messages:** 
+Specific conversational scripts for abuse are not included, but the system relies on "Zero-Trust and Defensive Engineering" to handle adversarial inputs. Before deployment, the system undergoes exhaustive **AI Red Teaming** to simulate adversarial attacks and jailbreak attempts. The system's responses are strictly scored against "Groundedness, Relevance, Fluency, and Task Adherence" to ensure the agents maintain their professional boundaries regardless of the user's input.
+
+**117. Fallback messages:** 
+If the primary generative models experience severe latency spikes or API timeouts, the **Self-Healing Agent** executes "exponential backoff logic" and can fall back to a simplified reasoning mode utilizing "cached, pre-approved responses" to prevent the workflow from halting entirely. Additionally, if human agents are unavailable for handoff, the predefined fallback message is: **“Our agents may be offline, but I can help you get a quote started.”**.
+
+**118. "Talk to a human" button:** 
+The documents do not specify whether a persistent, always-visible "talk to a human" button should be included in the widget's UI. However, the conversational flow actively pushes for human handoff as the primary call-to-action, asking: **"Would you like a licensed agent to prepare a personalized quote?"**. Furthermore, high-priority prospects (5-star leads) are "immediately routed via API to a live agent's CRM queue".
+
+***
+
+## Section 13 — Deployment & Launch Plan
+
+119. What is the **target launch date** for the chatbot?
+120. Should there be a **beta/soft launch** phase with limited traffic before full deployment?
+121. What **training** do agents need on how leads will arrive from the chatbot?
+122. What is the **chatbot testing plan** before go-live? (QA scripts, user testing, compliance review)
+123. What **feedback loop** exists for agents to report chatbot issues or suggest improvements?
+
+---
+
+**Final Takeaway for the Chatbot Build:**
+The architecture provided is incredibly robust for compliance and backend fault tolerance (e.g., using Neuro-Symbolic logic engines, OPA, and Medallion Lakehouse routing). However, to complete the build, you will need Intermarq Agency stakeholders to supply the exact customer-facing scripts for out-of-scope products, claims routing, and minor disqualifications!
+
+
+Based on the provided strategy and architecture documents, here are the answers regarding the deployment and launch plan for the Intermarq Agency chatbot. 
+
+Similar to some of the operational specifics in previous sections, the blueprints provide extensive details on the technical deployment and automated testing, but lack specific dates or human-centric operational procedures.
+
+**119. Target launch date:** 
+The sources do not specify a target launch date for the chatbot. However, they do note that the stringent California SB 263 "best interest" regulations the chatbot must comply with went into effect on January 1, 2025.
+
+**120. Beta/soft launch phase:** 
+Yes, the architectural blueprint strongly recommends a phased deployment. It states that before engaging in complex backend orchestration or multi-agent scaling, the system must first be deployed as a tightly scoped Minimum Viable Product (MVP). This MVP phase is focused exclusively on "high-conversion lead generation and intelligent routing" to validate the architecture. 
+
+**121. Agent training for chatbot leads:** 
+The documents do not outline an internal training plan for teaching human agents how to interact with the new chatbot leads. The sources only detail the technical routing process—where high-priority, 5-star leads are "immediately routed via API to a live agent's CRM queue" and automatically scheduled via Calendly or Google Calendar—and the mandatory state compliance training (the 8-hour SB 263 certification) that agents must complete before the system will route leads to them.
+
+**122. Chatbot testing plan:** 
+The testing plan relies heavily on automated, adversarial simulation. Before the system handles its first live consumer, it must undergo "exhaustive AI Red Teaming". Engineers will utilize the Azure AI Foundry Evaluation Dashboard to simulate adversarial attacks, jailbreak attempts, and complex edge-case queries. The chatbot's responses will be rigorously scored against objective metrics, including Groundedness, Relevance, Fluency, and Task Adherence, to ensure the AI maintains professional and compliant boundaries. 
+
+**123. Feedback loop for agents:** 
+The documents do not describe a manual feedback loop for human agents to report conversational issues or suggest improvements. Instead, they outline a highly automated technical feedback loop. Once live, the system uses Azure AI Foundry Observability, Application Insights, and OpenTelemetry to capture the microscopic details of every interaction. This telemetry tracks latency, reasoning traces, and anomalous tool-call frequencies, automatically triggering Azure Monitor alerts so engineers can diagnose and patch issues before end-users experience a failure.
+
+***
+
+**Final Next Steps:**
+To fully finalize Section 13 and complete your end-to-end build plan, you will need to coordinate with Intermarq Agency leadership to set a firm launch date, design an internal training session for the sales team on handling the new CRM leads, and establish a communication channel (like a Slack channel or ticketing system) for agents to report real-world chatbot feedback!

@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Integration"
+  short_description: "Expose models as APIs and app services"
+  default_prompt: "Use $ai-integration to expose this model as an API with schemas, containers, and integration guidance."
+
+policy:
+  allow_implicit_invocation: true

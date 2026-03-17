@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Reliability"
+  short_description: "Harden AI systems for scale and reliability"
+  default_prompt: "Use $ai-reliability to audit this AI system and define testing, monitoring, scaling, and drift controls."
+
+policy:
+  allow_implicit_invocation: true

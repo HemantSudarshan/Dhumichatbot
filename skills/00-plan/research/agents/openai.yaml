@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Research and Evaluation"
+  short_description: "Evaluate AI tools, papers, and PoCs"
+  default_prompt: "Use $research to compare these AI options, build a small PoC, and recommend whether we should adopt one."
+
+policy:
+  allow_implicit_invocation: true

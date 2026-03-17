@@ -1,0 +1,46 @@
+ 🔍 Research Questions — Intermarq Agency California Insurance Chatbot
+
+> **Context**: These questions are derived from two source documents:
+> 1. **CHATBOT SUGGESTIONS INTERMARQ AGENCY** — defines chatbot features (lead qualification, 7 converting questions, mortgage protection focus, lead capture, objection handling, multilingual, AI scoring)
+> 2. **US California Insurance Overview** — covers CA regulations (CDI, Prop 103, life insurance, annuities, SB 263, suitability rules, agent training)
+>
+> Feed each section to your research chatbot. Compile the answers and share them back so we can build the chatbot end-to-end.
+
+---
+
+## Section 1 — Intermarq Agency & Business Context
+
+> *We need to understand the agency's identity, carriers, and operations to configure the chatbot correctly.*
+
+1. What insurance carriers does Intermarq Agency represent in California?
+2. What geographic areas / zip codes does Intermarq Agency serve?
+3. What are Intermarq Agency's **license numbers** (CA DOI license, NPN via NIPR)?
+4. What is Intermarq Agency's primary value proposition vs competitors?
+5. What **CRM system** does the agency currently use (Applied Epic, HawkSoft, AgencyZoom, etc.)?
+6. What is the agency's current lead-to-close conversion rate and average response time?
+7. What is the agency's **appointment scheduling tool** (Calendly, Google Calendar, Acuity, etc.)?
+8. What is the **preferred contact method** for leads: phone call, text, email, or in-person?
+9. What is the agency's **brand kit** (logo, primary/secondary colors, fonts, tone of voice)?
+10. Does the agency have an **existing website** and what platform is it on (WordPress, Wix, custom)?
+
+
+
+Based on the provided source documents ("CHATBOT SUGGESTIONS INTERMARQ AGENCY" and the "US California Insurance Overview"), there is no specific information regarding Intermarq Agency's internal business operations, identity, or current software stack. 
+
+Here is the breakdown of your questions based on the available text:
+
+1. **Insurance carriers represented:** The sources do not contain this information.
+2. **Geographic areas / zip codes served:** The sources note that the chatbot should verify state residence by asking "What state do you live in?" and responding with "Great, we currently serve residents of California", but specific zip codes or regional territories within California are not mentioned.
+3. **License numbers:** The sources do not provide Intermarq Agency's specific CA DOI or NPN license numbers, though the chatbot script does suggest a trust-building message stating: “Our agents are licensed and registered through the National Insurance Producer Registry”.
+4. **Primary value proposition:** The sources do not outline a specific value proposition compared to competitors. 
+5. **CRM system:** The specific CRM platform (e.g., Applied Epic, HawkSoft) is not identified. The documents only state that the chatbot should send captured leads to a CRM, email, or text notification, and utilize an AI lead scoring system so that "your CRM prioritizes the best leads first".
+6. **Conversion rate & response time:** The agency's current metrics are not provided. The documents do mention that using specific psychology-based chatbot scripts can "convert insurance website visitors into booked appointments at 35–45%", but this refers to the scripts' potential, not the agency's current historical data.
+7. **Appointment scheduling tool:** The chatbot suggestion document explicitly recommends connecting the chatbot to either **Calendly** or **Google Calendar** to allow leads to schedule a 10-minute call or quick consultation automatically. However, it does not confirm which of these two the agency currently utilizes.
+8. **Preferred contact method:** The sources do not specify the agency's preferred follow-up method. The chatbot is designed to capture a lead's Name, Email, Phone, and Zip Code. 
+9. **Brand kit:** The sources do not contain any information regarding logos, colors, or fonts.
+10. **Existing website platform:** The sources do not state what platform the agency's website is built on, though the documents reference converting "insurance website visitors", implying a website exists.
+
+**Next Steps:**
+Because these foundational business details are missing from the current documents, you will need to gather them directly from Intermarq Agency stakeholders to properly configure the chatbot. 
+
+If you would like, I can use the `discover_sources` tool to search the web or your Google Drive to see if we can find additional documents containing Intermarq Agency's business context. Would you like me to initiate a search?

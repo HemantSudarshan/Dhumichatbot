@@ -1,0 +1,60 @@
+{
+  "price_teasers": {
+    "generic": {
+      "text_en": "Based on your answers, you may qualify for plans between $150k–$500k.",
+      "text_es": "Según sus respuestas, podría calificar para planes entre $150k–$500k.",
+      "when": "After step 2 (coverage amount selection)"
+    },
+    "specific_example": {
+      "text_en": "A healthy 35-year-old non-smoker seeking $250,000 in mortgage protection coverage may pay between $30–$45/month.",
+      "text_es": "Una persona saludable de 35 años que no fuma y busca $250,000 en cobertura de protección hipotecaria puede pagar entre $30–$45/mes.",
+      "when": "After step 4 (tobacco) for non-smoker 30-39 age band"
+    },
+    "format": "$X–$Y/month",
+    "disclaimer": "Actual rates depend on health, age, and coverage amount. A licensed agent will provide your exact quote.",
+    "disclaimer_es": "Las tarifas reales dependen de la salud, edad y monto de cobertura. Un agente licenciado le proporcionará su cotización exacta."
+  },
+
+  "education": {
+    "mortgage_protection": {
+      "definition_en": "Mortgage protection insurance ensures your family can stay in their home by paying off the remaining mortgage balance if something happens to you.",
+      "definition_es": "El seguro de protección hipotecaria asegura que su familia pueda permanecer en su hogar al pagar el saldo restante de la hipoteca si algo le sucede.",
+      "key_benefit": "Your family keeps the house — no matter what.",
+      "key_benefit_es": "Su familia conserva la casa — pase lo que pase."
+    },
+    "term_life": {
+      "definition_en": "Term life insurance provides a death benefit for a specific period (10, 20, or 30 years) at a fixed monthly premium.",
+      "definition_es": "El seguro de vida a término proporciona un beneficio por fallecimiento por un período específico (10, 20 o 30 años) a una prima mensual fija.",
+      "key_benefit": "Affordable coverage for the years that matter most.",
+      "key_benefit_es": "Cobertura accesible para los años que más importan."
+    },
+    "final_expense": {
+      "definition_en": "Final expense insurance (burial insurance) covers funeral costs, medical bills, and other end-of-life expenses so your family isn't burdened.",
+      "definition_es": "El seguro de gastos finales (seguro de entierro) cubre costos funerales, facturas médicas y otros gastos de fin de vida para que su familia no tenga esa carga.",
+      "key_benefit": "Peace of mind — your family won't face unexpected costs.",
+      "key_benefit_es": "Tranquilidad — su familia no enfrentará costos inesperados."
+    }
+  },
+
+  "pricing_reference": {
+    "mortgage_protection": {
+      "rates_by_age_non_smoker": {
+        "under_30": {"monthly_range": "$18–$25/month", "coverage": "$250,000"},
+        "30_39": {"monthly_range": "$30–$45/month", "coverage": "$250,000"},
+        "40_49": {"monthly_range": "$55–$85/month", "coverage": "$250,000"},
+        "50_59": {"monthly_range": "$95–$150/month", "coverage": "$250,000"},
+        "60_plus": {"monthly_range": "$165–$250/month", "coverage": "$250,000"}
+      },
+      "tobacco_multiplier": 1.5,
+      "tobacco_note": "Smoker rates are typically 1.5x higher than non-smoker rates."
+    }
+  },
+
+  "ca_compliance": {
+    "state": "California",
+    "regulator": "California Department of Insurance (CDI)",
+    "license_note": "All agents are licensed by the California Department of Insurance.",
+    "key_regulations": ["SB 263", "CIC §10509", "Proposition 103"],
+    "bilingual_requirement": "California requires multilingual support to serve diverse communities."
+  }
+}

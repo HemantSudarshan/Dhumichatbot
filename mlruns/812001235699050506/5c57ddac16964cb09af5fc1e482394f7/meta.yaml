@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Projects/DHUMI Projects/US insurance chatbot/mlruns/812001235699050506/5c57ddac16964cb09af5fc1e482394f7/artifacts
+end_time: 1773726793557
+entry_point_name: ''
+experiment_id: '812001235699050506'
+lifecycle_stage: active
+run_id: 5c57ddac16964cb09af5fc1e482394f7
+run_name: session_1773726792
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773726793357
+status: 3
+tags: []
+user_id: Hemant Sudarshan

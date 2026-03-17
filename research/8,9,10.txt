@@ -1,0 +1,116 @@
+## Section 8 — Pricing, Quoting & Rate Display
+
+> *The DOCX recommends showing price range estimates to increase engagement. Need exact data.*
+
+87. Can you provide a **complete rate table** for mortgage protection by age, gender, health class, coverage amount, and term?
+88. Can you provide a **complete rate table** for term life by the same variables?
+89. Can you provide a **complete rate table** for final expense by age, gender, and coverage amount?
+90. What **disclaimers** must accompany any price estimate shown by the chatbot? (e.g., "Rates are estimates only and subject to underwriting")
+91. Should the chatbot show **carrier-specific rates** or **generic ranges**?
+92. How frequently do rates change and how will the chatbot's rate data be **updated**?
+
+---
+
+## Section 9 — Appointment & Follow-Up Workflow
+
+> *From lead capture to policy binding — what's the complete post-chatbot workflow?*
+
+93. What is the **step-by-step workflow** after a lead is captured? (Agent receives notification → reviews lead score → contacts lead → needs analysis → application → underwriting → policy delivery)
+94. What is the **target time** from lead capture to first agent contact? (Minutes, hours?)
+95. What **automated follow-up sequences** should trigger after lead capture? (Thank you email, reminder SMS at 24h, follow-up at 48h, etc.)
+96. What **documents** does the agent need to prepare before contacting a qualified lead?
+97. What **information** should the chatbot pre-populate into the CRM before the agent call?
+98. Should the chatbot send the lead a **pre-appointment form** or **needs assessment questionnaire**?
+
+---
+
+## Section 10 — Analytics, KPIs & Optimization
+
+> *Measure chatbot performance and continuously improve.*
+
+99. What is the **target conversion rate** for chatbot conversations to qualified leads?
+100. What is the **target conversion rate** from qualified lead to booked appointment?
+101. What is the **target conversion rate** from appointment to policy binding?
+102. What **drop-off metrics** should be tracked at each step of the qualification flow?
+103. Should the chatbot include a **user satisfaction survey** (thumbs up/down, NPS)?
+104. What **A/B tests** should be run initially? (Greeting message variants, CTA copy, flow order)
+105. What **monthly reporting** does the agency need? (Total conversations, qualified leads, appointments booked, policies bound, revenue attributed)
+
+---
+
+
+
+
+**87–89. Complete rate tables for Mortgage Protection, Term Life, and Final Expense:**
+The provided documents do not contain complete rate tables or pricing matrices for any of these products. The only specific pricing data included in the sources is a single example for mortgage protection: a healthy 35-year-old non-smoker seeking $250,000 in coverage may pay between $30–$45/month. You will need to obtain the agency's specific carrier rate sheets to build out the full pricing logic.
+
+**90. Disclaimers for price estimates:**
+The sources do not provide the exact phrasing for a chatbot price estimate disclaimer (such as "Rates are estimates only"). However, under California Senate Bill 263, if the conversation shifts to an actual policy recommendation, the system must autonomously generate and deliver comprehensive disclosures. These required disclosures must outline potential surrender periods, surrender charges, mortality and expense fees, investment advisory fees, tax penalties, and inherent market risks.
+
+**91. Carrier-specific rates vs. generic ranges:**
+The chatbot should display **generic, rough price ranges**. The strategy documents explicitly recommend letting the chatbot give "rough price ranges before the customer talks to you," noting that this method increases user engagement because "people love instant numbers".
+
+**92. Frequency of rate changes and how data is updated:**
+While the documents do not state exactly how often carrier rates change, they outline a specific architectural solution for keeping the chatbot's pricing accurate. Because standard fine-tuned AI models suffer from a "knowledge cutoff" and cannot dynamically retrieve daily annuity interest rates or updated data without expensive retraining, the chatbot will use **Structure Augmented Generation (STAG)**. 
+
+When the system needs to calculate a premium estimate, the STAG pipeline bypasses the AI's internal memory and directly queries a **Relational Database** containing highly refined "Gold Layer" ACORD JSON data. This allows the chatbot to pull real-time, mathematically accurate pricing data at the exact moment of the user's query.
+
+
+
+Based on the provided strategy documents and architectural blueprints, here are the answers detailing the appointment and follow-up workflow for the Intermarq Agency chatbot. 
+
+Please note that while the documents heavily detail the automated AI routing and compliance checks, some of the specific human-agent operational metrics (like exact response time SLAs) are not explicitly defined.
+
+**93. Step-by-step workflow after lead capture**
+The documents do not outline the full human-side workflow through to policy delivery, but they do detail a highly automated, compliance-driven technical workflow immediately following lead capture:
+*   **Lead Capture & Scoring:** The chatbot collects the user's data and the backend AI Lead Scoring engine assigns a priority score (e.g., 1 to 5 stars) based on heuristically weighted profiles.
+*   **Compliance Verification (TXLife 228):** Before assigning a California lead to a live agent, the system triggers an ACORD TXLife 228 (Producer Inquiry) to verify the agent's credentials and ensure they have completed state-mandated training. If the agent is non-compliant, the lead is intercepted and reassigned.
+*   **Routing & Booking:** 5-star leads are immediately routed via API to a live agent's CRM queue, and an automated Calendly or Google Calendar scheduling prompt is triggered for the user. Lower-tier leads bypass human agents entirely.
+*   **Straight-Through Processing (TXLife 103):** The captured unstructured conversational data is serialized into an ACORD TXLife 103 (New Business Submission) JSON payload. This allows the lead to be instantly ingested by major carriers' automated underwriting engines, eliminating manual data entry. 
+
+**94. Target time from lead capture to first agent contact**
+An exact target time (e.g., 15 minutes, 1 hour) is not specified in the sources. However, the architecture is designed for **immediate and automated engagement**. High-priority leads are "immediately routed" to the CRM, and the chatbot instantly offers the user an option to "schedule a 10-minute call" via Calendly or Google Calendar right after their information is submitted.
+
+**95. Automated follow-up sequences**
+The specific cadences of follow-ups (such as a 24-hour SMS or 48-hour email) are not detailed in the sources. The documents do state that lower-scored leads (e.g., 2-star renters who are "just exploring") bypass live agents and are automatically routed to **"automated email nurture sequences"**. Additionally, immediately upon lead capture, the system is designed to send notifications to the agent via CRM, Email, and Text.
+
+**96. Documents the agent needs to prepare before contacting a qualified lead**
+While a specific "pre-call checklist" is not provided, California regulations heavily dictate what must be prepared and presented based on the user's intent:
+*   **For Replacements (CIC 10509):** If the user is replacing an existing life or annuity policy, the agent/system must prepare a formal **"Notice Regarding Replacement"** and a **written comparison** detailing the premiums, cash values, and death benefits of both the existing and proposed policies.
+*   **For Annuities (SB 263):** The agent must be prepared to provide a state-mandated **buyer's guide** and written disclosures outlining all material conflicts of interest, surrender charges, and fees.
+
+**97. Information pre-populated into the CRM**
+The chatbot is designed to extract and pre-populate the following fields into the CRM (normalized via ACORD TXLife 103 standards):
+*   **Contact Info:** Name, Email, Phone, Zip Code.
+*   **Qualification Data:** Desired coverage type (Mortgage, Family, Final Expenses, Business), Coverage amount ($100k to $1M+), Age range, Tobacco use (Yes/No/Occasionally), State of residence, and Homeowner status.
+*   **AI Lead Score:** The 1-to-5 star priority rating generated by the system.
+
+**98. Pre-appointment form vs. Needs assessment questionnaire**
+The sources do not explicitly state whether the chatbot sends a separate "pre-appointment form" link to the user. However, under California SB 263's "best interest" standard, agents cannot legally formulate a policy recommendation without executing reasonable diligence to profile the consumer. Therefore, the system or the agent must collect comprehensive **suitability information**—including annual income, liquid net worth, existing assets, liquidity needs, risk tolerance, and tax status—either during the chat flow, via a questionnaire, or during the initial consultation.
+
+
+
+
+Here are the answers to your analytics and optimization questions based on the provided strategy and architecture documents. 
+
+Similar to previous sections, the documents do not outline Intermarq Agency's specific internal KPIs, reporting requirements, or A/B testing roadmaps. 
+
+**99–101. Target conversion rates:**
+The sources do not define specific target conversion rates for "conversations to qualified leads" or "appointments to policy binding." The only specific conversion metric mentioned in the documents is a claim that using the 5 psychology-based chatbot scripts can **"convert insurance website visitors into booked appointments at 35–45%"**. 
+
+**102. Drop-off metrics to track:**
+The specific conversational drop-off points to track at each step of the qualification flow are not detailed. However, from a technical perspective, the architecture blueprint states that the system will use **Azure AI Foundry Observability, Application Insights, and OpenTelemetry** to capture real-time telemetry, including the latency of each tool call, token consumption, and reasoning traces. 
+
+**103. User satisfaction survey:**
+The provided documents do not mention whether the chatbot should include a user satisfaction survey, such as a thumbs up/down or Net Promoter Score (NPS) mechanism.
+
+**104. A/B tests:**
+The sources do not specify which A/B tests (e.g., greeting message variants, CTA copy, or flow order) should be run initially. 
+
+**105. Monthly reporting:**
+The specific monthly reporting deliverables for the agency (such as total conversations, policies bound, or revenue attributed) are not outlined in the sources. The documents only note that the Azure AI Foundry platform includes an **Evaluation Dashboard** for testing, monitoring metrics, and simulating edge-case queries.
+
+**Next Steps:**
+To finalize Section 10, you will need to sit down with Intermarq Agency stakeholders to establish their baseline KPIs, define their desired monthly reporting format, and determine what specific A/B tests they want to prioritize post-launch. 
+
+Since we have now gone through all 10 sections, you should have a clear list of the exact business, product, and operational details you need to collect from the agency to complete the end-to-end chatbot build!

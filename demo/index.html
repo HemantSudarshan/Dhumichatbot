@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Intermarq Agency — California Mortgage Protection & Life Insurance Chatbot">
+<title>Intermarq Agency — Insurance Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Calendly Popup Widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
+<!-- Cloudflare Turnstile (invisible CAPTCHA) -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<style>
+/* ── RESET & BASE ────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#000000;--surface:rgba(255,255,255,0.03);--card:rgba(255,255,255,0.04);
+ --glass:rgba(255,255,255,.05);--glass2:rgba(255,255,255,.10);
+ --primary:#d4af37;--primary-g:linear-gradient(135deg,#d4af37,#eab308);
+ --accent:#d4af37;--danger:#ff6b6b;--success:#51cf66;
+ --text:#ffffff;--muted:#a0a0ab;--border:rgba(212,175,55,.2);
+ --radius:16px;--shadow:0 8px 32px rgba(0,0,0,.6);
+ --font:'Cinzel','Times New Roman',serif;
+}
+html{font-size:16px;height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);
+ height:100vh;margin:0;display:grid;grid-template-columns:38% 62%;
+ background-image:radial-gradient(ellipse at 20% 50%,rgba(212,175,55,.04) 0%,transparent 50%),
+                  radial-gradient(ellipse at 80% 20%,rgba(212,175,55,.03) 0%,transparent 50%);
+}
+
+/* ── LEFT PANEL ──────────────────────────────── */
+.left-panel{display:flex;flex-direction:column;align-items:center;
+ justify-content:center;padding:40px 32px;gap:28px;
+ border-right:1px solid var(--border);
+ background:rgba(255,255,255,.02);position:relative;overflow:hidden}
+.left-panel::before{content:'';position:absolute;inset:0;
+ background:radial-gradient(circle at 50% 30%,rgba(212,175,55,.06) 0%,transparent 60%);
+ pointer-events:none}
+.brand-block{text-align:center;position:relative;z-index:1}
+.brand-monogram{width:80px;height:80px;border-radius:20px;background:var(--primary-g);
+ display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;
+ color:#000;margin:0 auto 20px;box-shadow:0 4px 24px rgba(212,175,55,.3)}
+.brand-block h2{font-size:1.8rem;font-weight:700;letter-spacing:.15em;color:#fff;
+ text-transform:uppercase;margin-bottom:4px}
+.brand-block .subtitle{font-size:.75rem;color:var(--muted);letter-spacing:.2em;
+ text-transform:uppercase;margin-bottom:20px}
+.gold-line{width:60px;height:2px;background:var(--primary-g);margin:0 auto 20px;border-radius:2px}
+.services-list{font-size:.72rem;color:var(--accent);letter-spacing:.15em;
+ text-transform:uppercase;text-align:center;line-height:2}
+.contact-block{text-align:center;position:relative;z-index:1}
+.contact-block p{font-size:.78rem;color:var(--muted);margin-bottom:6px}
+.contact-block a{color:var(--accent);text-decoration:none;font-weight:600;font-size:.82rem}
+.contact-block a:hover{text-decoration:underline}
+.trust-badges{display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+.trust-badge{display:flex;align-items:center;gap:8px;padding:8px 14px;
+ border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(212,175,55,.1);
+ font-size:.72rem;color:var(--muted)}
+.trust-badge span.icon{font-size:1rem}
+.website-link{font-size:.72rem;color:var(--muted);text-align:center;
+ position:relative;z-index:1}
+.website-link a{color:var(--accent);text-decoration:none}
+
+/* ── CHAT CONTAINER (RIGHT) ──────────────────── */
+.chat-wrapper{width:100%;height:100vh;
+ display:flex;flex-direction:column;overflow:hidden;
+ background:var(--surface);position:relative}
+
+/* ── HEADER ──────────────────────────────────── */
+.header{background:linear-gradient(135deg,#0d0d0d 0%,#1a1a1a 100%);
+ padding:14px 20px;display:flex;align-items:center;gap:12px;
+ border-bottom:1px solid var(--border);position:relative;z-index:2}
+.header-avatar{width:40px;height:40px;border-radius:12px;background:var(--primary-g);
+ display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.header-info{flex:1}
+.header-info h1{font-size:.9rem;font-weight:600;letter-spacing:.02em}
+.header-info p{font-size:.7rem;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:5px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--success);
+ display:inline-block;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.lang-toggle{display:flex;gap:4px}
+.lang-toggle button{padding:4px 10px;border:1px solid var(--border);border-radius:8px;
+ background:transparent;color:var(--muted);font-size:.7rem;font-weight:600;
+ cursor:pointer;transition:all .2s}
+.lang-toggle button.active{background:var(--primary);color:#000;border-color:var(--primary)}
+.hitl-btn{padding:5px 10px;background:rgba(255,107,107,.12);border:1px solid rgba(255,107,107,.25);
+ border-radius:8px;color:#ff8a8a;font-size:.68rem;font-weight:600;cursor:pointer;
+ transition:all .2s;white-space:nowrap}
+.hitl-btn:hover{background:rgba(255,107,107,.22)}
+
+/* ── AI DISCLOSURE ───────────────────────────── */
+.ai-banner{background:rgba(212,175,55,.04);border-bottom:1px solid rgba(212,175,55,.1);
+ padding:6px 20px;font-size:.68rem;color:var(--muted);text-align:center}
+.ai-banner span{color:var(--accent);font-weight:600}
+
+/* ── MESSAGES ────────────────────────────────── */
+.messages{flex:1;overflow-y:auto;padding:20px 20px 10px;display:flex;
+ flex-direction:column;gap:10px;scroll-behavior:smooth}
+.messages::-webkit-scrollbar{width:4px}
+.messages::-webkit-scrollbar-thumb{background:var(--glass2);border-radius:4px}
+
+.msg{display:flex;gap:8px;max-width:80%;animation:msgIn .3s ease}
+.msg.bot{align-self:flex-start}
+.msg.user{align-self:flex-end;flex-direction:row-reverse}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.msg-avatar{width:28px;height:28px;border-radius:8px;flex-shrink:0;
+ display:flex;align-items:center;justify-content:center;font-size:14px}
+.msg.bot .msg-avatar{background:var(--primary-g)}
+.msg.user .msg-avatar{background:var(--glass2)}
+
+.msg-bubble{padding:10px 14px;border-radius:14px;font-size:.85rem;line-height:1.5;
+ position:relative}
+.msg.bot .msg-bubble{background:var(--glass);border:1px solid var(--border);
+ border-top-left-radius:4px}
+.msg.user .msg-bubble{background:var(--primary);color:#000;border-top-right-radius:4px}
+
+/* ── TYPING INDICATOR ────────────────────────── */
+.typing{display:flex;gap:4px;padding:10px 14px;align-items:center}
+.typing span{width:6px;height:6px;background:var(--muted);border-radius:50%;
+ animation:bounce .8s ease infinite}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+
+/* ── BUTTONS ─────────────────────────────────── */
+.btn-grid{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0}
+.btn-grid button{padding:8px 14px;border-radius:10px;border:1px solid var(--border);
+ background:var(--glass);color:var(--text);font-size:.8rem;font-weight:500;
+ cursor:pointer;transition:all .2s;font-family:var(--font)}
+.btn-grid button:hover{background:var(--primary);border-color:var(--primary);color:#000;
+ transform:translateY(-1px)}
+
+/* ── LEAD FORM ───────────────────────────────── */
+.lead-form{display:flex;flex-direction:column;gap:8px;padding:8px 0}
+.lead-form input{padding:10px 14px;border-radius:10px;border:1px solid var(--border);
+ background:var(--glass);color:var(--text);font-size:.84rem;font-family:var(--font);
+ outline:none;transition:border-color .2s}
+.lead-form input:focus{border-color:var(--primary)}
+.lead-form input::placeholder{color:var(--muted)}
+.lead-form button{padding:10px;border-radius:10px;border:none;background:var(--primary-g);
+ color:#000;font-size:.85rem;font-weight:600;cursor:pointer;font-family:var(--font);
+ transition:opacity .2s}
+.lead-form button:hover{opacity:.9}
+
+/* ── TEXT INPUT (Step 5) ─────────────────────── */
+.text-input-row{display:flex;gap:6px;padding:4px 0}
+.text-input-row input{flex:1;padding:10px 14px;border-radius:10px;
+ border:1px solid var(--border);background:var(--glass);color:var(--text);
+ font-size:.84rem;font-family:var(--font);outline:none}
+.text-input-row input:focus{border-color:var(--primary)}
+.text-input-row button{padding:10px 16px;border-radius:10px;border:none;
+ background:var(--primary-g);color:#000;font-size:.84rem;font-weight:600;
+ cursor:pointer;font-family:var(--font)}
+
+/* ── FEEDBACK ────────────────────────────────── */
+.feedback{display:flex;gap:6px;margin-top:4px}
+.feedback button{padding:3px 8px;border-radius:6px;border:1px solid var(--border);
+ background:transparent;color:var(--muted);font-size:.7rem;cursor:pointer;
+ transition:all .2s}
+.feedback button:hover{background:var(--glass2)}
+.feedback button.voted{border-color:var(--accent);color:var(--accent)}
+
+/* ── PRICE CARD ──────────────────────────────── */
+.price-card{background:rgba(212,175,55,.06);
+ border:1px solid rgba(212,175,55,.15);border-radius:12px;padding:14px;margin:6px 0}
+.price-card h3{font-size:.82rem;color:var(--accent);margin-bottom:6px}
+.price-card .range{font-size:1.2rem;font-weight:700;background:var(--primary-g);
+ -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+.price-card .disclaimer{font-size:.65rem;color:var(--muted);font-style:italic;
+ margin-top:6px;line-height:1.4}
+
+/* ── SCORE BADGE ─────────────────────────────── */
+.score-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;
+ border-radius:8px;font-size:.78rem;font-weight:600;margin:4px 0}
+.score-5{background:rgba(81,207,102,.15);color:#51cf66}
+.score-4{background:rgba(78,205,196,.15);color:#4ecdc4}
+.score-3{background:rgba(255,215,0,.15);color:#ffd700}
+.score-2{background:rgba(255,177,66,.15);color:#ffb142}
+.score-1{background:rgba(255,107,107,.15);color:#ff6b6b}
+
+/* ── RAG INPUT BAR ──────────────────────────── */
+.rag-bar{display:flex;gap:6px;padding:12px 16px;border-top:1px solid var(--border);
+ background:rgba(0,0,0,.4);position:sticky;bottom:0}
+.rag-bar input{flex:1;padding:10px 14px;border-radius:10px;border:1px solid var(--border);
+ background:var(--glass);color:var(--text);font-size:.84rem;font-family:var(--font);outline:none}
+.rag-bar input:focus{border-color:var(--primary)}
+.rag-bar input::placeholder{color:var(--muted)}
+.rag-bar button{padding:10px 18px;border-radius:10px;border:none;background:var(--primary-g);
+ color:#000;font-size:.84rem;font-weight:600;cursor:pointer;font-family:var(--font);
+ transition:opacity .2s}
+.rag-bar button:hover{opacity:.9}
+.rag-bar button:disabled{opacity:.4;cursor:not-allowed}
+.rag-counter{font-size:.65rem;color:var(--muted);text-align:center;padding:2px 0}
+
+/* ── TURNSTILE ──────────────────────────────── */
+.cf-turnstile{margin:4px 0}
+.captcha-note{font-size:.65rem;color:var(--muted);text-align:center;margin-top:4px}
+
+/* ── TOAST ────────────────────────────────────── */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+ padding:10px 20px;border-radius:10px;background:rgba(0,0,0,.9);
+ border:1px solid var(--accent);color:var(--accent);font-size:.8rem;font-weight:500;
+ box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:100;animation:toastIn .3s ease}
+@keyframes toastIn{from{opacity:0;transform:translate(-50%,10px)}
+ to{opacity:1;transform:translate(-50%,0)}}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media(max-width:900px){
+ body{grid-template-columns:1fr}
+ .left-panel{display:none}
+ .chat-wrapper{height:100vh}
+}
+
+/* ── GLOW DOT ────────────────────────────────── */
+.glow-dot{display:inline-block;width:10px;height:10px;border-radius:50%;
+ background:var(--accent);flex-shrink:0;
+ animation:glowPulse 1.4s ease-in-out infinite}
+@keyframes glowPulse{
+ 0%,100%{box-shadow:0 0 4px 2px rgba(212,175,55,.5);transform:scale(1)}
+ 50%{box-shadow:0 0 14px 6px rgba(212,175,55,.95);transform:scale(1.3)}
+}
+</style>
+</head>
+<body>
+
+<!-- LEFT BRANDING PANEL -->
+<div class="left-panel">
+ <div class="brand-block">
+  <div class="brand-monogram">IM</div>
+  <h2>Intermarq</h2>
+  <div class="subtitle">Insurance Agency LLC</div>
+  <div class="gold-line"></div>
+  <div class="services-list">Life &bull; Whole &bull; Term &bull; Annuity &bull; Final Expense</div>
+ </div>
+ <div class="contact-block">
+  <p>Business: <a href="tel:8882133537">888-213-3537</a></p>
+  <p>Office: <a href="tel:3234756955">323-475-6955</a></p>
+ </div>
+ <div class="trust-badges">
+  <div class="trust-badge"><span class="icon">🛡️</span> CA DOI Licensed Agency</div>
+  <div class="trust-badge"><span class="icon">✅</span> NIPR Registered</div>
+  <div class="trust-badge"><span class="icon">📋</span> SB 263 Compliant</div>
+ </div>
+ <div class="website-link"><a href="https://intermarqinsuranceagency.com" target="_blank">intermarqinsuranceagency.com</a></div>
+</div>
+
+<!-- RIGHT: CHAT PANEL -->
+<div class="chat-wrapper">
+ <!-- HEADER -->
+ <div class="header">
+  <div class="header-avatar" style="font-family:'Cinzel',serif;font-weight:700;color:#000;font-size:18px;">IM</div>
+  <div class="header-info">
+   <h1>Intermarq Agency</h1>
+   <p><span class="status-dot"></span> Insurance Assistant</p>
+  </div>
+  <div class="lang-toggle">
+   <button class="active" onclick="setLang('en')">EN</button>
+   <button onclick="setLang('es')">ES</button>
+  </div>
+  <button class="hitl-btn" onclick="escalateToHuman()">💬 Talk to Human</button>
+ </div>
+
+ <!-- AI DISCLOSURE BANNER -->
+ <div class="ai-banner">
+  You're chatting with an <span>AI assistant</span>. A licensed agent is available for personalized advice.
+ </div>
+
+ <!-- MESSAGES -->
+ <div class="messages" id="messages"></div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container"></div>
+
+<script>
+/* ============================================================
+   INTERMARQ AGENCY — Insurance Chatbot Demo
+   ============================================================
+   Reads existing JSON knowledge files. No LLM, no server logic.
+   100% deterministic: buttons lock user into DOCX-defined paths.
+   Served via: python -m http.server 8080
+   ============================================================ */
+
+// ── STATE ──────────────────────────────────────────────
+let LANG = 'en';
+let STEP = 0;
+let DATA = {};
+let ANSWERS = {};
+let freeTextCount = 0;
+const RAG_API = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+  ? 'http://localhost:8000/api/v1/chat'
+  : window.location.origin + '/api/v1/chat';
+const MAX_FREE_CHATS = 3;
+let captchaPassed = false;
+let captchaToken = '';
+const SESSION = {
+  start: Date.now(),
+  thumbsUp: 0,
+  thumbsDown: 0,
+  dropOff: null,
+  leadScore: null,
+  completed: false
+};
+
+const CA_ALIASES = ['california','ca','calif','calif.','cali','californi','calfornia','califonia',
+  'californai','caalifornia','califorina','caifornia'];
+
+// Levenshtein distance for fuzzy state matching
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({length: m+1}, (_, i) => Array.from({length: n+1}, (_, j) => i === 0 ? j : j === 0 ? i : 0));
+  for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++)
+    dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1] : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+  return dp[m][n];
+}
+function isCaliforniaInput(raw) {
+  const norm = raw.toLowerCase().trim().replace(/[^a-z]/g, '');
+  if (CA_ALIASES.includes(norm)) return true;
+  // Accept if within 2 edits of 'california' or 'ca'
+  if (levenshtein(norm, 'california') <= 2) return true;
+  if (norm === 'ca') return true;
+  return false;
+}
+const MSGS = document.getElementById('messages');
+
+// ── LOAD JSON FILES ────────────────────────────────────
+async function loadData() {
+  const base = '../knowledge/';
+  const files = ['scripts','hooks','objections','pricing','compliance'];
+  try {
+    const results = await Promise.all(
+      files.map(f => fetch(base + f + '.json').then(r => {
+        if (!r.ok) throw new Error(f + '.json failed: ' + r.status);
+        return r.json();
+      }))
+    );
+    files.forEach((f, i) => DATA[f] = results[i]);
+    startChat();
+  } catch (err) {
+    addBotMsg('⚠️ Could not load knowledge files. Make sure you are serving this page via:<br><code>python -m http.server 8080</code><br>then open <code>http://localhost:8080/demo/index.html</code>');
+  }
+}
+
+// ── MESSAGE RENDERING ──────────────────────────────────
+function addBotMsg(html, opts = {}) {
+  const wrap = document.createElement('div');
+  wrap.className = 'msg bot';
+  wrap.innerHTML = `
+    <div class="msg-avatar" style="font-weight:bold;color:#000">IM</div>
+    <div>
+      <div class="msg-bubble">${html}</div>
+      ${opts.extra || ''}
+    </div>`;
+  MSGS.appendChild(wrap);
+  scrollBottom();
+}
+
+function addUserMsg(text) {
+  const wrap = document.createElement('div');
+  wrap.className = 'msg user';
+  wrap.innerHTML = `
+    <div class="msg-avatar" style="font-size:12px;color:#fff">Me</div>
+    <div class="msg-bubble">${esc(text)}</div>`;
+  MSGS.appendChild(wrap);
+  scrollBottom();
+}
+
+function addButtons(labels, callback) {
+  const wrap = document.createElement('div');
+  wrap.className = 'msg bot';
+  const grid = document.createElement('div');
+  grid.className = 'btn-grid';
+  labels.forEach(label => {
+    const btn = document.createElement('button');
+    btn.textContent = label;
+    btn.onclick = () => {
+      grid.querySelectorAll('button').forEach(b => b.disabled = true);
+      btn.style.background = 'var(--primary)';
+      btn.style.borderColor = 'var(--primary)';
+      callback(label);
+    };
+    grid.appendChild(btn);
+  });
+  wrap.innerHTML = '<div class="msg-avatar" style="visibility:hidden">·</div>';
+  wrap.appendChild(grid);
+  MSGS.appendChild(wrap);
+  scrollBottom();
+}
+
+function addTextInput(placeholder, callback) {
+  const wrap = document.createElement('div');
+  wrap.className = 'msg bot';
+  wrap.innerHTML = `<div class="msg-avatar" style="visibility:hidden">·</div>`;
+  const row = document.createElement('div');
+  row.className = 'text-input-row';
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.placeholder = placeholder;
+  input.maxLength = 80;
+  const btn = document.createElement('button');
+  btn.textContent = '→';
+  btn.onclick = () => {
+    const val = input.value.trim();
+    if (val) { input.disabled = true; btn.disabled = true; callback(val); }
+  };
+  input.onkeydown = e => { if (e.key === 'Enter') btn.click(); };
+  row.appendChild(input);
+  row.appendChild(btn);
+  wrap.appendChild(row);
+  MSGS.appendChild(wrap);
+  scrollBottom();
+  input.focus();
+}
+
+function addLeadForm() {
+  const s = DATA.scripts.step_7;
+  const labels = LANG === 'en' ? s.field_labels_en : s.field_labels_es;
+  const wrap = document.createElement('div');
+  wrap.className = 'msg bot';
+  wrap.innerHTML = '<div class="msg-avatar" style="visibility:hidden">·</div>';
+  const form = document.createElement('div');
+  form.className = 'lead-form';
+  form.id = 'lead-form';
+  s.fields.forEach(f => {
+    const inp = document.createElement('input');
+    inp.type = f === 'email' ? 'email' : f === 'phone' ? 'tel' : 'text';
+    inp.placeholder = labels[f];
+    inp.name = f;
+    inp.id = 'lead-' + f;
+    form.appendChild(inp);
+  });
+
+  // ── Cloudflare Turnstile CAPTCHA ──
+  const turnstileDiv = document.createElement('div');
+  turnstileDiv.className = 'cf-turnstile';
+  // Demo site key (always passes). Replace with real key for production.
+  turnstileDiv.setAttribute('data-sitekey', '1x00000000000000000000AA');
+  turnstileDiv.setAttribute('data-callback', 'onCaptchaPass');
+  turnstileDiv.setAttribute('data-theme', 'dark');
+  form.appendChild(turnstileDiv);
+
+  const captchaNote = document.createElement('div');
+  captchaNote.className = 'captcha-note';
+  captchaNote.textContent = LANG === 'en'
+    ? '🔒 Protected by Cloudflare Turnstile — no annoying puzzles'
+    : '🔒 Protegido por Cloudflare Turnstile — sin rompecabezas molestos';
+  form.appendChild(captchaNote);
+
+  const btn = document.createElement('button');
+  btn.textContent = LANG === 'en' ? 'Get My Personalized Quote →' : 'Obtener Mi Cotización →';
+  btn.id = 'lead-submit-btn';
+  btn.disabled = true; // Disabled until CAPTCHA passes
+  btn.title = LANG === 'en' ? 'Complete CAPTCHA verification first' : 'Complete la verificación CAPTCHA primero';
+  btn.onclick = () => submitLead(form);
+  form.appendChild(btn);
+  wrap.appendChild(form);
+  MSGS.appendChild(wrap);
+  scrollBottom();
+
+  // Render Turnstile widget
+  if (window.turnstile) {
+    window.turnstile.render(turnstileDiv, {
+      sitekey: '1x00000000000000000000AA',
+      callback: onCaptchaPass,
+      theme: 'dark'
+    });
+  }
+}
+
+// ── TYPING ANIMATION ───────────────────────────────────
+function showTyping() {
+  const el = document.createElement('div');
+  el.className = 'msg bot';
+  el.id = 'typing';
+  el.innerHTML = `<div class="msg-avatar" style="font-weight:bold;color:#000">IM</div>
+    <div class="typing"><span></span><span></span><span></span></div>`;
+  MSGS.appendChild(el);
+  scrollBottom();
+}
+function hideTyping() {
+  const el = document.getElementById('typing');
+  if (el) el.remove();
+}
+
+function typeBot(html, opts = {}) {
+  return new Promise(resolve => {
+    showTyping();
+    setTimeout(() => { hideTyping(); addBotMsg(html, opts); resolve(); },
+      600 + Math.random() * 400);
+  });
+}
+
+// ── CHAT FLOW ──────────────────────────────────────────
+async function startChat() {
+  const hook = DATA.hooks.greeting_hook;
+  await typeBot(hook[`text_${LANG}`], { noFeedback: true });
+
+  // AI disclosure
+  const aiDisc = LANG === 'es' && DATA.compliance.disclosures.ai_disclosure_es
+    ? DATA.compliance.disclosures.ai_disclosure_es
+    : DATA.compliance.disclosures.ai_disclosure;
+  await typeBot(`<em style="font-size:.75rem;color:var(--muted)">${aiDisc}</em>`, { noFeedback: true });
+
+  askStep(1);
+}
+
+async function askStep(n) {
+  STEP = n;
+  SESSION.dropOff = `Step ${n}`;
+  const s = DATA.scripts[`step_${n}`];
+  if (!s) return;
+
+  if (n === 5) {
+    // TEXT INPUT — state
+    await typeBot(LANG === 'en' ? "What state do you live in? (we presently serve in California)" : "¿En qué estado vive? (actualmente servimos en California)");
+    addTextInput(LANG === 'en' ? 'Type your state...' : 'Escriba su estado...', val => {
+      addUserMsg(val);
+      if (isCaliforniaInput(val)) {
+        ANSWERS.state = 'California';
+        let caResp = (s && s[`response_ca_${LANG}`]) || (LANG === 'en'
+          ? 'Great, California is covered! Let me get a few more details.'
+          : '¡Excelente, California está cubierta! Permítame obtener algunos detalles más.');
+        typeBot(caResp).then(() => askStep(6));
+      } else {
+        ANSWERS.state = val;
+        let nonCaResp = (s && s[`response_non_ca_${LANG}`]) || (LANG === 'en'
+          ? 'We currently only write policies for California residents. If you move to California, we\'d love to help you then!'
+          : 'Actualmente solo escribimos pólizas para residentes de California.');
+        typeBot(nonCaResp);
+        // Do NOT continue flow — non-CA users are halted here
+        setTimeout(() => {
+          addButtons(
+            LANG === 'en' ? ['Notify Me When Available'] : ['Notificarme Cuando Esté Disponible'],
+            () => {
+              addUserMsg(LANG === 'en' ? 'Notify Me When Available' : 'Notificarme');
+              typeBot(LANG === 'en'
+                ? 'We\'ve noted your interest. We\'ll reach out as soon as we expand to your state!'
+                : '¡Hemos anotado su interés. Nos comunicaremos tan pronto como nos expandamos a su estado!');
+            }
+          );
+        }, 600);
+      }
+    });
+    return;
+  }
+
+  if (n === 7) {
+    // LEAD CAPTURE
+    // Show closing reassurance hook first
+    const closing = DATA.hooks.closing_reassurance;
+    await typeBot(closing[`text_${LANG}`]);
+    await typeBot(s[`question_${LANG}`]);
+    addLeadForm();
+    return;
+  }
+
+  // BUTTON STEPS (1-4, 6)
+  await typeBot(s[`question_${LANG}`]);
+  const buttons = s[`buttons_${LANG}`];
+  addButtons(buttons, val => {
+    addUserMsg(val);
+    ANSWERS[s.id] = val;
+
+    // Check for objections in button text
+    checkObjection(val);
+
+    // Psychology hooks at strategic points
+    if (n === 1) {
+      // Loss aversion after step 1
+      setTimeout(() => {
+        typeBot(`<em style="font-size:.78rem;color:var(--accent)">💡 ${
+          LANG === 'en'
+            ? 'What would happen to your family\'s home if something unexpected happened?'
+            : '¿Qué pasaría con la casa de su familia si algo inesperado sucediera?'
+        }</em>`, { noFeedback: true }).then(() => askStep(2));
+      }, 300);
+      return;
+    }
+
+    if (n === 4) {
+      // Trust hook after tobacco question
+      const trust = DATA.hooks.trust_verification;
+      setTimeout(() => {
+        typeBot(`🔒 ${trust[`text_${LANG}`]}`, { noFeedback: true }).then(() => askStep(5));
+      }, 300);
+      return;
+    }
+
+    askStep(n + 1);
+  });
+}
+
+// ── OBJECTION DETECTION ────────────────────────────────
+function checkObjection(text) {
+  const lower = text.toLowerCase();
+  for (const [key, obj] of Object.entries(DATA.objections)) {
+    for (const trigger of obj.triggers) {
+      if (lower.includes(trigger.toLowerCase())) {
+        setTimeout(async () => {
+          await typeBot(obj[`response_${LANG}`]);
+          if (obj[`follow_up_${LANG}`]) {
+            await typeBot(obj[`follow_up_${LANG}`]);
+          }
+        }, 400);
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// ── LEAD SUBMISSION ────────────────────────────────────
+// ── CAPTCHA CALLBACK ───────────────────────────────────
+function onCaptchaPass(token) {
+  captchaPassed = true;
+  captchaToken = token;
+  const submitBtn = document.getElementById('lead-submit-btn');
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.title = '';
+  }
+  console.log('[SECURITY] Turnstile CAPTCHA passed');
+}
+
+async function submitLead(form) {
+  if (!captchaPassed) {
+    showToast(LANG === 'en' ? '🔒 Please complete CAPTCHA verification' : '🔒 Complete la verificación CAPTCHA');
+    return;
+  }
+  const fields = {};
+  let valid = true;
+  form.querySelectorAll('input').forEach(inp => {
+    if (inp.name && inp.type !== 'hidden') {
+      fields[inp.name] = inp.value.trim();
+      if (!inp.value.trim()) { valid = false; inp.style.borderColor = 'var(--danger)'; }
+    }
+  });
+  if (!valid) return;
+
+  form.querySelectorAll('input,button').forEach(el => el.disabled = true);
+
+  ANSWERS.lead = fields;
+  addUserMsg(`${maskPII(fields.name)} • ${maskPII(fields.email)}`);
+
+  // Calculate lead score
+  const score = calcLeadScore();
+  SESSION.leadScore = score;
+  SESSION.completed = true;
+  SESSION.dropOff = null;
+
+  // Show pricing
+  await showPricing();
+
+  // Show lead score
+  await typeBot(`${LANG === 'en' ? 'Your qualification profile' : 'Su perfil de calificación'}:
+    <div class="score-badge score-${score.score}">${score.label} ${
+      LANG === 'en' ? 'Priority Lead' : 'Lead Prioritario'
+    }</div>`);
+
+  // Social proof hook
+  await typeBot(`<em style="font-size:.78rem;color:var(--accent)">✨ ${
+    LANG === 'en'
+      ? 'Over 500 California families have protected their mortgages through our agency.'
+      : 'Más de 500 familias de California han protegido sus hipotecas a través de nuestra agencia.'
+  }</em>`, { noFeedback: true });
+
+  // CRM Mock — NO raw PII logged
+  console.log('[TELEMETRY] lead_submitted: true, score:', score.score);
+  showToast(LANG === 'en' ? '✅ Lead sent to Intermarq CRM' : '✅ Lead enviado al CRM de Intermarq');
+
+  // Appointment CTA
+  const cta = DATA.scripts.appointment_booking;
+  await typeBot(cta[`cta_${LANG}`]);
+  addButtons(
+    LANG === 'en'
+      ? ['📅 Schedule 10-min Call', 'Chat More']
+      : ['📅 Programar Llamada', 'Chatear Más'],
+    val => {
+      addUserMsg(val);
+      if (val.includes('Schedule') || val.includes('Programar')) {
+        // Scarcity hook
+        typeBot(`<em style="font-size:.78rem;color:var(--accent)">⏰ ${
+          LANG === 'en'
+            ? 'Limited appointment slots available this week.'
+            : 'Espacios limitados disponibles esta semana.'
+        }</em>`, { noFeedback: true }).then(() => {
+          openCalendlyPopup();
+          showToast('📅 Opening Calendly...');
+          typeBot(LANG === 'en'
+            ? 'Your appointment link is ready. A licensed California agent will call you at your scheduled time.'
+            : 'Su enlace de cita está listo. Un agente licenciado de California le llamará a la hora programada.'
+          ).then(endSession);
+        });
+      } else {
+        freeTextCount = 0; // Reset limiter
+        typeBot(LANG === 'en'
+          ? 'Sure! What else would you like to know? You can type your question in the box below.'
+          : '¡Claro! ¿Qué más le gustaría saber? Puede escribir su pregunta abajo.'
+        ).then(() => {
+          showToast(LANG === 'en' ? '💬 Chat unlocked' : '💬 Chat desbloqueado');
+          endSession(); // Enable RAG free‑text input
+        });
+      }
+    }
+  );
+}
+
+// ── LEAD SCORING ───────────────────────────────────────
+function calcLeadScore() {
+  const rules = DATA.scripts.lead_scoring.rules;
+  let score = 2, label = '⭐⭐';
+
+  const isHomeowner = (ANSWERS.homeowner_status || '').toLowerCase().includes('yes') ||
+                      (ANSWERS.homeowner_status || '').toLowerCase().includes('sí');
+  const isMortgage = (ANSWERS.coverage_type || '').toLowerCase().includes('mortgage') ||
+                     (ANSWERS.coverage_type || '').toLowerCase().includes('hipoteca');
+  const highCoverage = (ANSWERS.coverage_amount || '').includes('250') ||
+                       (ANSWERS.coverage_amount || '').includes('500') ||
+                       (ANSWERS.coverage_amount || '').includes('1,000');
+  const age50plus = (ANSWERS.age_range || '').includes('50') ||
+                    (ANSWERS.age_range || '').includes('60');
+  const isCA = ANSWERS.state === 'California';
+  const justExploring = (ANSWERS.coverage_type || '').toLowerCase().includes('exploring') ||
+                        (ANSWERS.coverage_type || '').toLowerCase().includes('explorando');
+  const isRenter = (ANSWERS.homeowner_status || '').toLowerCase().includes('no');
+
+  if (!isCA) { score = 1; label = '⭐'; }
+  else if (justExploring && isRenter) { score = 2; label = '⭐⭐'; }
+  else if (isMortgage && age50plus) { score = 4; label = '⭐⭐⭐⭐'; }
+  else if (isHomeowner && highCoverage) { score = 5; label = '⭐⭐⭐⭐⭐'; }
+  else if (isHomeowner || highCoverage) { score = 4; label = '⭐⭐⭐⭐'; }
+  else { score = 3; label = '⭐⭐⭐'; }
+
+  return { score, label };
+}
+
+// ── PRICING DISPLAY ────────────────────────────────────
+async function showPricing() {
+  const pricing = DATA.pricing.mortgage_protection;
+  const ageMap = {
+    'Under 30': 'under_30', 'Menor de 30': 'under_30',
+    '30-39': '30_39', '40-49': '40_49',
+    '50-59': '50_59', '60+': '60_plus'
+  };
+  const covMap = {
+    '$100,000': '250k', '$250,000': '250k', '$500,000': '500k',
+    '$1,000,000+': '1m', 'Not sure yet': '250k', 'Aún no estoy seguro': '250k'
+  };
+
+  const ageKey = ageMap[ANSWERS.age_range] || '30_39';
+  const covKey = covMap[ANSWERS.coverage_amount] || '250k';
+  const rates = pricing.rates_by_age_non_smoker[ageKey];
+  let range = rates ? rates[covKey] || rates['250k'] : '$30-$45/month';
+
+  // Tobacco multiplier — dynamically adjust the dollar range
+  const isTobacco = (ANSWERS.tobacco_use || '').toLowerCase() === 'yes' ||
+                    (ANSWERS.tobacco_use || '').toLowerCase() === 'sí' ||
+                    (ANSWERS.tobacco_use || '').toLowerCase() === 'occasionally' ||
+                    (ANSWERS.tobacco_use || '').toLowerCase() === 'ocasionalmente';
+  let tobaccoNote = '';
+  if (isTobacco) {
+    // Parse "$30-$45/month" → multiply both by 1.5 → "$45-$68/month"
+    const match = range.match(/\$(\d+)[–-]\$(\d+)/);
+    if (match) {
+      const adjMin = Math.round(parseInt(match[1]) * 1.5);
+      const adjMax = Math.round(parseInt(match[2]) * 1.5);
+      range = `$${adjMin}–$${adjMax}/month`;
+    }
+    tobaccoNote = `<br><span style="font-size:.72rem;color:var(--danger)">⚠️ ${pricing.tobacco_note} (1.5× adjustment applied)</span>`;
+  }
+
+  // Urgency hook
+  const urgency = LANG === 'en'
+    ? '📈 Rates typically increase with age — lock in today\'s rate.'
+    : '📈 Las tarifas suelen aumentar con la edad — asegure la tarifa de hoy.';
+
+  // SB 263 compliance disclaimer
+  const sb263 = LANG === 'en'
+    ? 'This estimate is for educational purposes only. Per California SB 263, a licensed agent will ensure the final product meets your best interest.'
+    : 'Esta estimación es solo con fines educativos. Según la SB 263 de California, un agente licenciado garantizará que el producto final satisfaga su mejor interés.';
+
+  await typeBot(`
+    <div class="price-card">
+      <h3>${LANG === 'en' ? 'Your Estimated Range' : 'Su Rango Estimado'}</h3>
+      <div class="range">${range}</div>
+      ${LANG === 'en' ? 'Mortgage Protection' : 'Protección Hipotecaria'} • ${ANSWERS.coverage_amount || '$250,000'}
+      ${tobaccoNote}
+      <div style="margin-top:6px;font-size:.72rem;color:var(--accent)">${urgency}</div>
+      <div class="disclaimer">${DATA.pricing._meta.disclaimer}</div>
+    <div class="disclaimer" style="margin-top:4px;color:var(--accent)">${sb263}</div>
+    </div>`);
+
+  // ── Glowing CTA dot after price card ──
+  const glowMsg = document.createElement('div');
+  glowMsg.className = 'msg bot';
+  glowMsg.style.cursor = 'pointer';
+  glowMsg.innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;padding:8px 4px">
+      <span class="glow-dot"></span>
+      <span style="font-size:.82rem;color:var(--accent);font-weight:600;letter-spacing:.02em;"
+        onclick="showRAGInput()">${LANG === 'en'
+          ? 'Click here for customized questions'
+          : 'Haga clic aquí para preguntas personalizadas'
+        }</span>
+    </div>`;
+  MSGS.appendChild(glowMsg);
+  scrollBottom();
+
+  // Reciprocity hook
+  await typeBot(`<em style="font-size:.78rem;color:var(--accent)">🎁 ${
+    LANG === 'en'
+      ? 'Let me get you a free personalized quote — no commitment required.'
+      : 'Permítame obtener una cotización personalizada gratuita — sin compromiso.'
+  }</em>`, { noFeedback: true });
+}
+
+// ── HITL ESCALATION ────────────────────────────────────
+async function escalateToHuman() {
+  const hook = DATA.hooks.offline_fallback;
+  let textKey = "text_" + LANG;
+  await typeBot(`💬 ${hook[textKey]}`);
+  await typeBot(LANG === 'en'
+    ? 'Would you like to schedule a 10-minute call to review your options? or chat more to know more before connecting in a call'
+    : '¿Desea programar una llamada de 10 minutos para revisar sus opciones? o chatear más para saber más antes de conectarse a una llamada');
+    
+  addButtons(
+    LANG === 'en'
+      ? ['📅 Schedule 10-min Call', 'Chat More']
+      : ['📅 Programar Llamada', 'Chatear Más'],
+    val => {
+      addUserMsg(val);
+      if (val.includes('Schedule') || val.includes('Programar')) {
+        openCalendlyPopup();
+        showToast('📅 Opening Calendly...');
+      } else {
+        freeTextCount = 0; // Reset limiter
+        typeBot(LANG === 'en'
+          ? 'Sure! What else would you like to know? You can type your question below.'
+          : '¡Claro! ¿Qué más le gustaría saber? Puede escribir su pregunta abajo.'
+        );
+        showRAGInput(); // Ensure the input is visible/unlocked
+      }
+    }
+  );
+  showToast(LANG === 'en' ? '📞 Agent notified via CRM' : '📞 Agente notificado vía CRM');
+  console.log('[TELEMETRY] hitl_escalation: true');
+}
+
+// ── LANGUAGE TOGGLE ────────────────────────────────────
+function setLang(lang) {
+  if (LANG === lang) return;
+  const msg = lang === 'es'
+    ? 'Cambiar de idioma reiniciará la conversación. ¿Desea continuar?'
+    : 'Switching language will restart the conversation. Do you want to continue?';
+  if (!confirm(msg)) return; // User cancelled
+  LANG = lang;
+  STEP = 0;
+  ANSWERS = {};
+  freeTextCount = 0;
+  captchaPassed = false;
+  captchaToken = '';
+  SESSION.start = Date.now();
+  SESSION.thumbsUp = 0;
+  SESSION.thumbsDown = 0;
+  SESSION.dropOff = null;
+  SESSION.leadScore = null;
+  SESSION.completed = false;
+  document.querySelectorAll('.lang-toggle button').forEach(b => {
+    b.classList.toggle('active', b.textContent === lang.toUpperCase());
+  });
+  // Remove any existing RAG bar
+  const ragBar = document.getElementById('rag-bar');
+  const ragCounter = document.getElementById('rag-counter');
+  if (ragBar) ragBar.remove();
+  if (ragCounter) ragCounter.remove();
+  MSGS.innerHTML = '';
+  loadData();
+}
+
+// ── FEEDBACK VOTING ────────────────────────────────────
+function vote(btn, type) {
+  const fb = btn.parentElement;
+  fb.querySelectorAll('button').forEach(b => b.classList.remove('voted'));
+  btn.classList.add('voted');
+  if (type === 'up') SESSION.thumbsUp++;
+  else SESSION.thumbsDown++;
+  console.log('[TELEMETRY] feedback:', type, '| session ratio:', SESSION.thumbsUp + '/' + SESSION.thumbsDown);
+}
+
+// ── SESSION END TELEMETRY ──────────────────────────────
+function endSession() {
+  const duration = Math.round((Date.now() - SESSION.start) / 1000);
+  console.log('═══ SESSION TELEMETRY (no PII) ═══');
+  console.log('Duration:', duration, 'seconds');
+  console.log('Completed:', SESSION.completed);
+  console.log('Drop-off:', SESSION.dropOff || 'None (completed)');
+  console.log('Lead Score:', SESSION.leadScore ? SESSION.leadScore.label : 'N/A');
+  console.log('Feedback: 👍', SESSION.thumbsUp, '/ 👎', SESSION.thumbsDown);
+  console.log('Language:', LANG.toUpperCase());
+  console.log('══════════════════════════════════');
+  // Unlock free-text RAG input after the 7-step flow
+  showRAGInput();
+}
+
+// ── CALENDLY POPUP ─────────────────────────────────────
+function openCalendlyPopup() {
+  if (window.Calendly) {
+    Calendly.initPopupWidget({ url: 'https://calendly.com/intermarq-agency/10min' });
+  } else {
+    // Fallback if Calendly widget hasn't loaded
+    window.open('https://calendly.com/intermarq-agency/10min', '_blank');
+  }
+}
+
+// ── FREE-TEXT RAG INPUT (3-Chat Limiter) ───────────────
+function showRAGInput() {
+  if (document.getElementById('rag-bar')) return; // Already shown
+
+  const ragMsg = LANG === 'en'
+    ? "💬 You can now ask me anything about Intermarq's insurance products."
+    : '💬 Ahora puede preguntarme cualquier cosa sobre los productos de seguros de Intermarq.';
+  typeBot(ragMsg, { noFeedback: true });
+
+  const bar = document.createElement('div');
+  bar.className = 'rag-bar';
+  bar.id = 'rag-bar';
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.id = 'rag-input';
+  input.placeholder = LANG === 'en' ? 'Ask a question...' : 'Haga una pregunta...';
+  input.maxLength = 200;
+  const sendBtn = document.createElement('button');
+  sendBtn.id = 'rag-send';
+  sendBtn.textContent = '→';
+  sendBtn.onclick = () => sendRAGQuestion();
+  input.onkeydown = e => { if (e.key === 'Enter') sendBtn.click(); };
+  bar.appendChild(input);
+  bar.appendChild(sendBtn);
+
+  const counter = document.createElement('div');
+  counter.className = 'rag-counter';
+  counter.id = 'rag-counter';
+  counter.textContent = LANG === 'en'
+    ? `${MAX_FREE_CHATS - freeTextCount} free questions remaining`
+    : `${MAX_FREE_CHATS - freeTextCount} preguntas gratuitas restantes`;
+
+  // Append after messages area
+  const wrapper = document.querySelector('.chat-wrapper');
+  wrapper.appendChild(counter);
+  wrapper.appendChild(bar);
+}
+
+async function sendRAGQuestion() {
+  const input = document.getElementById('rag-input');
+  const sendBtn = document.getElementById('rag-send');
+  const question = (input.value || '').trim();
+  if (!question) return;
+
+  addUserMsg(question);
+  input.value = '';
+  input.disabled = true;
+  sendBtn.disabled = true;
+  showTyping();
+
+  try {
+    const resp = await fetch(RAG_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question, language: LANG })
+    });
+    hideTyping();
+
+    if (!resp.ok) throw new Error('API error: ' + resp.status);
+    const data = await resp.json();
+
+    const answer = data.answer || 'Sorry, I could not generate a response.';
+    const safeAnswer = esc(answer); // Sanitize to prevent DOM XSS
+    const sources = (data.sources || []).map(s => esc(s.file.replace('.json', '')));
+    const provider = esc(data.provider || 'unknown');
+    const srcStr = sources.length ? `<br><em style="font-size:.68rem;color:var(--muted)">Sources: ${[...new Set(sources)].join(', ')} | via ${provider}</em>` : '';
+
+    addBotMsg(safeAnswer + srcStr);
+    freeTextCount++;
+
+    // Update counter
+    const counter = document.getElementById('rag-counter');
+    const remaining = MAX_FREE_CHATS - freeTextCount;
+    if (counter) {
+      counter.textContent = LANG === 'en'
+        ? `${remaining} free question${remaining !== 1 ? 's' : ''} remaining`
+        : `${remaining} pregunta${remaining !== 1 ? 's' : ''} gratuita${remaining !== 1 ? 's' : ''} restante${remaining !== 1 ? 's' : ''}`;
+    }
+
+    console.log(`[RAG] freeTextCount=${freeTextCount}/${MAX_FREE_CHATS}`);
+
+    // ── 3-Chat Limiter: trigger appointment CTA ──
+    if (freeTextCount >= MAX_FREE_CHATS) {
+      input.disabled = true;
+      sendBtn.disabled = true;
+      if (counter) {
+        counter.textContent = LANG === 'en'
+          ? '🔒 Free questions used. Schedule a call to continue.'
+          : '🔒 Preguntas gratuitas agotadas. Programe una llamada para continuar.';
+        counter.style.color = 'var(--accent)';
+      }
+
+      await typeBot(LANG === 'en'
+        ? 'You\'ve used your free questions. Schedule a 10-minute call with a licensed agent to get all your questions answered — no commitment required!'
+        : '¡Ha utilizado sus preguntas gratuitas. Programe una llamada de 10 minutos con un agente licenciado para obtener respuestas — sin compromiso!');
+        
+      addButtons(
+        LANG === 'en'
+          ? ['📅 Schedule 10-min Call']
+          : ['📅 Programar Llamada'],
+        val => {
+          addUserMsg(val);
+          openCalendlyPopup();
+          showToast('📅 Opening Calendly...');
+          typeBot(LANG === 'en'
+            ? 'A licensed California agent will answer all your questions on your call. See you there!'
+            : 'Un agente licenciado de California responderá todas sus preguntas en su llamada. ¡Hasta pronto!'
+          );
+        }
+      );
+      return;
+    }
+
+  } catch (err) {
+    hideTyping();
+    addBotMsg(LANG === 'en'
+      ? 'Sorry, I couldn\'t connect to the knowledge base right now. Please try again.'
+      : 'Lo siento, no pude conectarme a la base de conocimientos. Por favor, intente de nuevo.');
+    console.error('[RAG ERROR]', err);
+  }
+
+  input.disabled = false;
+  sendBtn.disabled = false;
+  input.focus();
+}
+
+// ── UTILITIES ──────────────────────────────────────────
+function scrollBottom() {
+  requestAnimationFrame(() => { MSGS.scrollTop = MSGS.scrollHeight; });
+}
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+function maskPII(val) {
+  if (!val) return '***';
+  if (val.includes('@')) return val[0] + '***@' + val.split('@')[1];
+  return val.substring(0, 1) + '***';
+}
+function showToast(text) {
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.textContent = text;
+  document.getElementById('toast-container').appendChild(el);
+  setTimeout(() => el.remove(), 3000);
+}
+
+// ── BOOT ───────────────────────────────────────────────
+loadData();
+</script>
+</body>
+</html>

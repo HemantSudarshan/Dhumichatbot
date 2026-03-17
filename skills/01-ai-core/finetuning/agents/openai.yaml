@@ -1,0 +1,7 @@
+interface:
+  display_name: "Fine-Tuning and Optimization"
+  short_description: "Fine-tune and optimize ML or LLM models"
+  default_prompt: "Use $finetuning to choose a tuning method, prepare the dataset, and produce a training plan."
+
+policy:
+  allow_implicit_invocation: true

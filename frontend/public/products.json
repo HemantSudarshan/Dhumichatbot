@@ -1,0 +1,207 @@
+{
+  "mortgage_protection": {
+    "name": "Mortgage Protection",
+    "chatbot_label": "Mortgage Protection",
+    "emoji": "house",
+    "description": "Ensures your family can stay in their home by paying off the remaining mortgage balance if something happens to you.",
+    "coverage_amounts": [
+      "$100,000",
+      "$250,000",
+      "$500,000",
+      "$1,000,000+",
+      "Not sure yet"
+    ],
+    "selling_points": [
+      "Family keeps the house",
+      "Pays off remaining mortgage balance",
+      "Converts whole life exposure to specific protection"
+    ],
+    "education_script": "Mortgage protection insurance ensures your family can stay in their home by paying off the remaining mortgage balance if something happens to you.",
+    "qualification_cta": "Based on your answers, you may qualify for plans between $150k-$500k.",
+    "ca_scenario": "A 35-year-old in San Jose with a new mortgage buys a 20-year term policy to match their loan payoff timeline.",
+    "types": [
+      "Term Life",
+      "Whole Life",
+      "Universal Life"
+    ]
+  },
+  "family_life": {
+    "name": "Family Life Insurance",
+    "chatbot_label": "My Family",
+    "emoji": "family",
+    "description": "Term or permanent life insurance to replace your income and protect your family's long-term financial security.",
+    "coverage_amounts": [
+      "$100,000",
+      "$250,000",
+      "$500,000",
+      "$1,000,000+",
+      "Not sure yet"
+    ],
+    "selling_points": [
+      "Income replacement",
+      "Children's education funding",
+      "Estate planning and legacy"
+    ],
+    "types": [
+      "Term Life",
+      "Whole Life",
+      "Universal Life (UL)",
+      "Indexed Universal Life (IUL)",
+      "Variable Life (requires FINRA Series 6/63)"
+    ],
+    "education_script": "Family life insurance replaces your income so your family can maintain their lifestyle, pay bills, and fund future goals like college."
+  },
+  "final_expense": {
+    "name": "Final Expense",
+    "chatbot_label": "Final Expenses",
+    "emoji": "peace",
+    "description": "Covers funeral costs, medical bills, and end-of-life expenses so your family is not financially burdened.",
+    "coverage_amounts": [
+      "$5,000",
+      "$10,000",
+      "$25,000",
+      "$50,000"
+    ],
+    "typical_age_range": "50-85",
+    "selling_points": [
+      "Simplified underwriting - no medical exam",
+      "Covers funeral and burial costs ($9,000-$15,000 average in CA)",
+      "Peace of mind for family"
+    ],
+    "education_script": "Final expense insurance covers funeral costs, medical bills, and end-of-life expenses. Average funeral cost in California is $9,000-$15,000."
+  },
+  "business_protection": {
+    "name": "Business Protection",
+    "chatbot_label": "Business Protection",
+    "emoji": "building",
+    "description": "Key person insurance, buy-sell agreement funding, and business continuity coverage to protect your company.",
+    "coverage_amounts": [
+      "$250,000",
+      "$500,000",
+      "$1,000,000+",
+      "Custom amount"
+    ],
+    "selling_points": [
+      "Protects against loss of key employees",
+      "Funds buy-sell agreements",
+      "Business continuity on death of owner"
+    ],
+    "types": [
+      "Key Person Insurance",
+      "Buy-Sell Funding",
+      "Executive Bonus Plans"
+    ],
+    "ca_scenario": "A 60-year-old Los Angeles business owner uses permanent life to fund a buy-sell agreement with a partner, ensuring business continuity."
+  },
+  "ca_demographic_targeting": {
+    "source": "US Census Bureau ACS 2022",
+    "top_homeowner_counties": [
+      {
+        "county": "Alpine County, California",
+        "homeowner_pct": 82.8,
+        "median_income": 101125
+      },
+      {
+        "county": "Sierra County, California",
+        "homeowner_pct": 82.8,
+        "median_income": 61108
+      },
+      {
+        "county": "Calaveras County, California",
+        "homeowner_pct": 82.1,
+        "median_income": 77526
+      },
+      {
+        "county": "Amador County, California",
+        "homeowner_pct": 79.0,
+        "median_income": 74853
+      },
+      {
+        "county": "El Dorado County, California",
+        "homeowner_pct": 76.1,
+        "median_income": 99246
+      },
+      {
+        "county": "Modoc County, California",
+        "homeowner_pct": 75.1,
+        "median_income": 54962
+      },
+      {
+        "county": "Nevada County, California",
+        "homeowner_pct": 74.9,
+        "median_income": 79395
+      },
+      {
+        "county": "Tuolumne County, California",
+        "homeowner_pct": 74.4,
+        "median_income": 70432
+      },
+      {
+        "county": "Plumas County, California",
+        "homeowner_pct": 74.3,
+        "median_income": 67885
+      },
+      {
+        "county": "Mariposa County, California",
+        "homeowner_pct": 73.8,
+        "median_income": 60021
+      }
+    ],
+    "note": "Use for geo-targeted lead scoring — homeowner counties convert highest"
+  },
+  "ca_demographics": {
+    "source": "US Census ACS 2022",
+    "top_homeowner_counties": [
+      {
+        "county": "Alpine County, California",
+        "homeowner_pct": 82.8,
+        "median_income": 101125
+      },
+      {
+        "county": "Sierra County, California",
+        "homeowner_pct": 82.8,
+        "median_income": 61108
+      },
+      {
+        "county": "Calaveras County, California",
+        "homeowner_pct": 82.1,
+        "median_income": 77526
+      },
+      {
+        "county": "Amador County, California",
+        "homeowner_pct": 79.0,
+        "median_income": 74853
+      },
+      {
+        "county": "El Dorado County, California",
+        "homeowner_pct": 76.1,
+        "median_income": 99246
+      },
+      {
+        "county": "Modoc County, California",
+        "homeowner_pct": 75.1,
+        "median_income": 54962
+      },
+      {
+        "county": "Nevada County, California",
+        "homeowner_pct": 74.9,
+        "median_income": 79395
+      },
+      {
+        "county": "Tuolumne County, California",
+        "homeowner_pct": 74.4,
+        "median_income": 70432
+      },
+      {
+        "county": "Plumas County, California",
+        "homeowner_pct": 74.3,
+        "median_income": 67885
+      },
+      {
+        "county": "Mariposa County, California",
+        "homeowner_pct": 73.8,
+        "median_income": 60021
+      }
+    ]
+  }
+}

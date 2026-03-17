@@ -1,0 +1,43 @@
+## Section 14 — Future Roadmap
+
+124. Should the chatbot eventually handle **auto insurance and homeowners** quotes (beyond the current 4 product lines)?
+125. Is there a plan to add **annuity education and qualification** to the chatbot? (The PDF covers annuities extensively)
+126. Should the chatbot eventually support **multi-state** operations beyond California?
+127. Is there interest in **AI voice** capabilities (phone-based IVR or voice assistant)?
+128. Should the chatbot evolve to handle **policy servicing** (payments, changes, document requests)?
+129. Is there a plan to integrate **real-time underwriting** or **instant decisioning** from carriers?
+130. Should the chatbot track and respond to **California regulatory changes** automatically?
+
+---
+
+## How to Use This Document
+
+1. **Feed one section at a time** to your research chatbot
+2. **Compile the answers** into a structured knowledge base
+3. **Share the compiled responses** back with me
+4. I'll use those answers to build the complete chatbot — from conversation flows and UI to backend integrations and compliance
+
+> ⚠️ **Priority Sections**: Start with **Section 1** (agency context) and **Section 2** (product details) — these are the foundation everything else builds on.
+
+
+
+
+
+**124. Auto and Homeowners insurance:** The sources do not explicitly outline a future roadmap for adding auto and homeowners insurance quoting. The current architectural blueprint is specifically designed for the California life and annuity market. The minimum viable product (MVP) focuses exclusively on capturing leads for mortgage, family, final expenses, and business protection.
+
+**125. Annuity education and qualification:** Yes, the system's architecture is already heavily designed to accommodate annuities. The backend is built to enforce California Senate Bill 263, which mandates strict "best interest" standards for annuity recommendations. The conversational flow is engineered to extract mandated data fields like liquid assets, financial objectives, and risk tolerance, and the system can autonomously generate required disclosures regarding surrender charges and tax penalties. Furthermore, the compliance agent evaluates proposed annuity premiums against Medi-Cal asset limits to prevent prohibited sales practices.
+
+**126. Multi-state operations:** The system is already architected with out-of-state leads in mind. While it immediately loads California-specific compliance modules if the user selects California, if a user selects another state, the chatbot is programmed to verify "whether the agency possesses non-resident licensing for that jurisdiction". 
+
+**127. AI voice capabilities:** The sources contain no information regarding future plans to implement AI voice capabilities or phone-based IVR systems.
+
+**128. Policy servicing:** The sources do not mention evolving the chatbot to handle policy servicing such as payments, changes, or document requests. The current architectural focus is strictly limited to "high-conversion lead generation and intelligent routing".
+
+**129. Real-time underwriting / instant decisioning:** Yes, enabling this is a core feature of the backend design. The architecture normalizes the user's unstructured conversational data by serializing it into an industry-standard ACORD TXLife 103 JSON payload. This ensures the lead can be "instantly ingested by any major carrier's automated underwriting engine," which eliminates manual data entry and paves the way for "true straight-through processing".
+
+**130. Responding to California regulatory changes:** The system does not automatically track new legislation, but it is built to adapt to updates seamlessly through **Policy-as-Code**. Because the chatbot uses an Open Policy Agent (OPA) to handle compliance via the Rego domain-specific language, when California alters a tax bracket or training requirement, engineers only need to update a single variable in the Rego file. This instantly propagates the compliance update across the entire multi-agent system without requiring the massive AI models to be retrained.
+
+***
+
+**Next Steps for Your Build:**
+We have now compiled the research for all the sections you provided. As noted in your instructions, you will want to prioritize **Section 1 (Agency Context)** and **Section 2 (Product Details)** with the Intermarq Agency stakeholders, as the source documents were missing their specific CRM platforms, carrier rate sheets, and brand kit details required to lay the foundation for this architecture!

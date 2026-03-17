@@ -1,0 +1,135 @@
+## Section 5 — Multilingual & Accessibility
+
+> *The DOCX recommends English + Spanish for California to double conversions.*
+
+63. What **percentage of Intermarq's target market** speaks Spanish as a primary language?
+64. Should the chatbot **detect language preference** automatically or present a language selector?
+65. What **insurance terminology translations** are needed? (Policy = póliza, premium = prima, coverage = cobertura — need full glossary)
+66. Are there any **California-mandated language access** requirements for insurance communications?
+67. What **ADA/WCAG accessibility** standards must the chatbot meet? (Screen reader compatibility, keyboard navigation, color contrast)
+68. Should the chatbot support any **other languages** beyond English and Spanish for the California market? (Mandarin, Korean, Vietnamese, Tagalog?)
+
+---
+
+## Section 6 — Conversation Scripts & Content
+
+> *Need exact scripts for the chatbot's educational and objection-handling features.*
+
+69. What is the exact **mortgage protection education script**? (Doc mentions "explains how term life pays off mortgage balance if something happens to you" — need full explanation)
+70. What is the **term life vs. mortgage protection comparison** script? (Doc mentions this as a key education topic)
+71. What are the **top 10 FAQs** the agency currently gets about each product line?
+72. What **trust-building statements** should the chatbot use? (Doc mentions "licensed and registered through the National Insurance Producer Registry" — need all trust signals)
+73. What **urgency/scarcity messages** are appropriate and compliant? (e.g., "rates increase with age")
+74. What **testimonials or social proof** can the chatbot reference? (With compliance review)
+75. What **educational content** should the chatbot offer about life insurance types? (Per PDF: term vs. whole vs. universal vs. variable — need plain-language explanations)
+76. What **annuity education** should the chatbot provide if asked? (Per PDF: fixed vs. variable vs. indexed, accumulation vs. payout phases)
+77. What **California-specific scenarios** should the chatbot handle? (Per PDF Page 9: 35-year-old in San Jose needing term life, 60-year-old in LA needing permanent for business)
+
+---
+
+## Section 7 — Technical Integration & CRM
+
+> *Need to map infrastructure for the chatbot to integrate with existing agency systems.*
+
+78. What **CRM** does the agency use and does it have an API for lead ingestion?
+79. What **fields** should be captured and sent to the CRM? (Name, email, phone, zip, product interest, coverage amount, age, tobacco, homeowner status, lead score, conversation transcript)
+80. What **appointment scheduling API** will be used? (Calendly API, Google Calendar API, etc.)
+81. What **notification system** should alert agents of new leads? (Email, SMS, push notification, CRM alert, Slack)
+82. Should the chatbot integrate with any **quoting engines** (Quotit, iBridge, carrier portals)?
+83. What **website platform** will host the chatbot widget? (WordPress plugin, JavaScript embed, iframe)
+84. Does the agency need a **dashboard** to view chatbot analytics? (Conversations, leads, conversion rates, drop-off points)
+85. What **hours of operation** apply to live agent handoff vs. 24/7 chatbot-only mode?
+86. Should leads be **routed to specific agents** based on product type, language, or location?
+
+
+
+
+**63. Percentage of Spanish-speaking market:** The provided documents do not specify the exact percentage of Intermarq's target market that speaks Spanish as a primary language. However, the chatbot suggestions document emphasizes that adding Spanish is "Very important in California" and estimates that doing so will "double conversions".
+
+**64. Automatic detection vs. language selector:** The architecture blueprint recommends a hybrid approach. It states that the chatbot MVP should support "dynamic language switching, seamlessly transitioning between English and Spanish based on browser locales or user preference" to maximize market penetration. 
+
+**65. Insurance terminology translations:** The sources do not provide a glossary of insurance terminology translations (e.g., policy, premium, coverage) for the Spanish language version of the bot.
+
+**66. California-mandated language access:** While the sources outline extensive California insurance regulations (such as SB 263, Proposition 103, and CIC Section 10509), they do not mention any specific state-mandated language access requirements for insurance communications.
+
+**67. ADA/WCAG accessibility standards:** The provided documents do not contain any information regarding specific ADA or WCAG accessibility standards (such as screen reader compatibility, keyboard navigation, or color contrast) that the chatbot must meet.
+
+**68. Other languages:** The sources do not suggest supporting any additional languages (such as Mandarin, Korean, Vietnamese, or Tagalog). The recommendations strictly focus on implementing English and Spanish for the California market.
+
+**Next Steps:**
+Similar to previous sections, technical specifications regarding ADA/WCAG compliance, mandated language access laws, and exact translation glossaries are not present in the current strategy and blueprint documents. You will need to consult with a legal/compliance officer regarding California language access mandates and provide a translated copy of your approved scripts to the development team.
+
+
+
+
+Here are the details for the conversation scripts and educational content based on the provided documents:
+
+**69. Exact mortgage protection education script:**
+The only exact educational script provided for this is: **“Mortgage protection insurance ensures your family can stay in their home by paying off the remaining mortgage balance if something happens to you.”**. While the document instructs that the bot should also explain "what mortgage protection is" and "how it pays off the house", it does not provide the full conversational scripts for those bullet points.
+
+**70. Term life vs. mortgage protection comparison script:**
+An exact comparison script is **not provided** in the sources. The document simply lists "Difference between term life vs mortgage protection" as a necessary educational topic the bot must cover.
+
+**71. Top 10 FAQs:**
+The sources **do not contain** a list of the top 10 FAQs for the agency or its product lines.
+
+**72. Trust-building statements:**
+The primary trust-building statement provided for the chatbot to use is: **“Our agents are licensed and registered through the National Insurance Producer Registry.”**.
+
+**73. Urgency/scarcity messages:**
+The documents do not outline specific urgency or scarcity messages (such as "rates increase with age"). However, it does provide a "Conversion Boosting Message" designed to keep users engaged right after they start the chat: **“Most homeowners can qualify for mortgage protection coverage in under 2 minutes.”**.
+
+**74. Testimonials or social proof:**
+There are **no testimonials or examples of social proof** provided in the source documents.
+
+**75. Educational content about life insurance types:**
+The sources define the primary life insurance types as follows, which can be adapted into plain-language chatbot explanations:
+*   **Term Life:** Provides a death benefit for a fixed period (e.g., 10, 20, or 30 years) and is typically the least expensive option with no cash value. It is generally used for income replacement during working years. 
+*   **Whole Life:** A permanent policy with fixed premiums and guaranteed cash value growth. It is used for long-term protection and estate planning.
+*   **Universal Life:** Offers flexible premiums and a flexible death benefit, with cash value tied to interest or market indexes. Agents often recommend Indexed Universal Life (IUL) for tax-deferred growth linked to a market index with a guaranteed floor against market loss.
+*   **Variable Life:** The most complex permanent option where the cash value is invested in securities (the market), offering higher risk and reward. (Note: Agents must be registered with FINRA to sell this).
+
+**76. Annuity education (fixed, variable, indexed, accumulation/payout):**
+The sources explain the phases and types of annuities as follows:
+*   **Accumulation Phase:** The period where the buyer pays premiums (a single lump sum or multiple contributions) and the funds grow according to the contract type. 
+*   **Payout Phase:** The period where the value is converted into a stream of payments (annuitized) or taken as systematic withdrawals. Payouts can last for life, cover a joint survivor, or last for a set period.
+*   **Fixed Annuities:** The insurer guarantees a minimum interest rate and payment formula, shielding the owner from market volatility to provide conservative, predictable income.
+*   **Indexed Annuities:** A middle ground where interest is credited based on a market index (like the S&P 500) subject to caps and floors, guaranteeing the principal against market loss.
+*   **Variable Annuities:** Assets are held in separate accounts and tied to underlying investments. Growth depends on market performance, and the owner assumes the market risk. 
+
+**77. California-specific scenarios:**
+The sources outline two specific life insurance scenarios that reflect California's regulatory and planning landscape:
+*   **35-year-old in San Jose:** A software engineer with a spouse and young child buys a 20-year term policy to replace income while the child grows up. The agent must ensure the policy fits the family’s needs and provide clear disclosures of premiums, benefits, and any riders.
+*   **60-year-old in Los Angeles:** A small business owner buys a permanent life policy to fund a buy-sell agreement with a business partner. The agent must consider the owner's long-term goals and financial situation, and strictly comply with California’s replacement rules if the owner is switching from an older policy.
+
+
+**78. CRM system & API:** 
+The specific CRM platform Intermarq currently uses is not identified in the sources. However, the architectural blueprint specifies that the system should route data via API directly into a live agent's CRM queue.
+
+**79. Fields to capture:** 
+The chatbot should capture the following fields: Name, Email, Phone, Zip Code, desired coverage type, coverage amount, age range, tobacco use, state of residence, and homeowner status. The system also generates an AI lead score (e.g., 5 stars). To integrate with external systems, this captured conversational data must be normalized and serialized into the standard **ACORD TXLife 103** (New Business Submission) JSON structure.
+
+**80. Appointment scheduling API:** 
+The chatbot will integrate with either the **Calendly** or **Google Calendar** API to automatically schedule quick consultations. 
+
+**81. Notification system:** 
+Upon lead capture, the system should trigger a **CRM entry, an Email, and a Text notification** to alert agents.
+
+**82. Integration with quoting engines:** 
+Specific third-party quoting engines (like Quotit or iBridge) are not explicitly named. However, the blueprint emphasizes that by serializing the lead data into the ACORD TXLife 103 format, the system ensures the lead can be "instantly ingested by any major carrier's automated underwriting engine" to enable straight-through processing. 
+
+**83. Website platform:** 
+The sources do not specify the website platform (WordPress, Wix, etc.) hosting the chatbot widget.
+
+**84. Dashboard for analytics:** 
+Yes, the proposed enterprise architecture utilizes Azure AI Foundry, which includes an **Evaluation Dashboard** for testing, as well as **Azure AI Foundry Observability paired with Application Insights and OpenTelemetry** for real-time monitoring. This telemetry captures microscopic details such as the latency of each tool call, token consumption, reasoning traces, and specific policy evaluations.
+
+**85. Hours of operation:** 
+Exact live-agent hours are not defined, but the chatbot operates 24/7. When agents are unavailable, the chatbot is programmed to use the script, “Our agents may be offline, but I can help you get a quote started,” allowing the agency to "collect leads while you sleep". 
+
+**86. Lead routing logic:** 
+Leads are routed based on AI scoring and strict compliance checks:
+*   **Priority Routing:** 5-star leads (e.g., Homeowner + $250k+ Coverage) are immediately routed via API to a live agent's queue, whereas lower-scored leads (e.g., Renters just exploring) bypass human agents and route to automated email nurture sequences.
+*   **Compliance Routing:** Before assigning a California lead to an agent, the orchestration layer triggers an ACORD TXLife 228 (Producer Inquiry) to verify the agent's credentials. If the system detects that the assigned agent has not completed the required 8-hour Best Interest training, it automatically intercepts and reassigns the lead to a fully certified agent. 
+
+*(Note: To fully complete technical integration, you will need to confirm the specific CRM and website platform currently used by the Intermarq Agency, as these details are not present in the strategy documents).*
