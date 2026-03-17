@@ -1,7 +1,7 @@
 services:
   - type: web
     name: intermarq-chatbot
-    env: python
+    env: python # <--- THIS FORCES NATIVE PYTHON DEPLOY
     buildCommand: "pip install -r requirements.txt"
     startCommand: "python -m app.rag.embed_knowledge && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     envVars:
